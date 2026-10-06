@@ -22,16 +22,7 @@
 
   &__text {
     max-width: s(480);
-    margin-block: s(42);
-
-    @include tablet {
-      margin-block: s(32);
-    }
-
-    @include mobile {
-      max-width: none;
-      margin-block: s(24);
-    }
+    margin-block: s(24);
   }
 
   &__btn,
