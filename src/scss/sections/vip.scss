@@ -83,9 +83,9 @@
   }
 
   &__tab {
-    gap: s(16);
-    height: s(40);
-    padding: s(12);
+    gap: s(8);
+    padding: s(8) s(12);
+    font-size: s(12);
 
     &:hover {
       background: var(--color-white);
@@ -98,8 +98,8 @@
   }
 
   &__tab-icon {
-    width: s(18);
-    height: s(18);
+    width: s(16);
+    height: s(16);
     color: var(--color-primary);
     transition: color 0.3s;
   }
