@@ -1,7 +1,7 @@
 @use "functions" as *;
 
 :root {
-  --width-base: 1440;
+  --width-base: 1920;
   --width-current: 100vw;
   --width-multiplier: calc(var(--width-current) / var(--width-base));
 
