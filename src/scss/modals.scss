@@ -1,0 +1,50 @@
+@use "functions" as *;
+
+.modals {
+  position: fixed;
+  inset: 0;
+  z-index: 1000;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: s(16);
+  background: rgba(0, 0, 0, 0.5);
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.3s;
+}
+
+.modal {
+  position: relative;
+  display: none;
+  width: 100%;
+  max-width: s(520);
+  max-height: 100%;
+  overflow-y: auto;
+  padding: s(40);
+  background: var(--color-bg);
+  border-radius: s(16);
+  overscroll-behavior: contain;
+
+  &.open {
+    display: block;
+  }
+
+  &__close {
+    position: absolute;
+    top: s(16);
+    right: s(16);
+    font-size: s(28);
+    line-height: 1;
+  }
+
+  &__title {
+    font-size: s(28);
+    margin-bottom: s(24);
+  }
+
+  &__form {
+    display: grid;
+    gap: s(16);
+  }
+}

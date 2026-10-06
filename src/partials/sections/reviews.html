@@ -1,0 +1,19 @@
+<section class="reviews">
+  <img class="reviews__back" src="img/reviews-back.png" width="1440" height="800" alt="" loading="lazy">
+
+  <div class="reviews__container container">
+    <h2 class="reviews__title text-up text-center">Что говорят о нас наши гости</h2>
+
+    <div class="reviews__slider swiper">
+      <div class="swiper-wrapper">
+        @@include('sections/reviews-card.html')
+        @@include('sections/reviews-card.html')
+        @@include('sections/reviews-card.html')
+        @@include('sections/reviews-card.html')
+        @@include('sections/reviews-card.html')
+      </div>
+    </div>
+
+    <button class="reviews__btn modal-btn" type="button" data-type="feedback">Забронировать визит</button>
+  </div>
+</section>

@@ -1,0 +1,107 @@
+@use "../functions" as *;
+
+.about {
+  padding-block: s(64);
+  overflow: hidden;
+  overflow: clip;
+
+  @include mobile {
+    padding-block: s(42);
+  }
+
+  &__head {
+    display: grid;
+    grid-template-columns: minmax(0, s(875)) s(460);
+    grid-template-areas:
+      "title text"
+      "features text";
+    justify-content: space-between;
+    gap: s(42);
+
+    @include tablet {
+      grid-template-columns: 1fr;
+      grid-template-areas:
+        "title"
+        "text"
+        "features";
+      gap: s(32);
+    }
+
+    @include mobile {
+      gap: s(24);
+    }
+  }
+
+  &__title {
+    grid-area: title;
+  }
+
+  &__text {
+    grid-area: text;
+    letter-spacing: -0.04em;
+  }
+
+  &__features {
+    grid-area: features;
+  }
+
+  &__label {
+    margin-bottom: s(16);
+    color: rgba(0, 0, 0, 0.6);
+    font: 500 s(14)/1.3 var(--font-secondary);
+    text-transform: uppercase;
+  }
+
+  &__tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: s(5);
+    max-width: s(875);
+  }
+
+  &__tag {
+    display: flex;
+    align-items: center;
+    min-height: s(34);
+    padding: s(8) s(16);
+    color: var(--color-white);
+    background: var(--color-primary);
+    font: 500 s(12)/1.5 var(--font-secondary);
+  }
+
+  &__slider {
+    margin-top: s(42);
+    overflow: visible;
+
+    @include tablet {
+      margin-top: s(32);
+    }
+
+    @include mobile {
+      margin-top: s(24);
+    }
+  }
+
+  &__slide {
+    width: s(692);
+
+    @include tablet {
+      width: s(560);
+    }
+
+    @include mobile {
+      width: s(320);
+    }
+  }
+
+  &__img {
+    width: 100%;
+    height: auto;
+    aspect-ratio: 692 / 456;
+    object-fit: cover;
+
+    @include mobile {
+      aspect-ratio: 320 / 343;
+    }
+  }
+}

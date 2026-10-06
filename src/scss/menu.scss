@@ -1,0 +1,191 @@
+@use "functions" as *;
+
+.menu {
+  position: fixed;
+  inset: 0;
+  z-index: 200;
+  display: flex;
+  justify-content: flex-end;
+  color: var(--color-cream);
+  font: 500 s(12)/1 var(--font-secondary);
+  letter-spacing: 0.02em;
+  text-transform: uppercase;
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 0.4s, visibility 0.4s;
+
+  &.open {
+    opacity: 1;
+    visibility: visible;
+  }
+
+  // затемнение только под шапкой — она остаётся видимой
+  &::before {
+    content: "";
+    position: absolute;
+    inset: s(48) 0 0;
+    background: rgba(0, 0, 0, 0.5);
+  }
+
+  &__panel {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    width: s(366);
+    height: 100%;
+    background: var(--color-dark);
+    transform: translateX(100%);
+    transition: transform 0.4s ease;
+
+    @include mobile {
+      width: 100%;
+    }
+  }
+
+  &.open &__panel {
+    transform: none;
+  }
+
+  &__head {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-shrink: 0;
+    height: s(48);
+    padding-inline: s(16);
+  }
+
+  &__title {
+    font-size: s(20);
+  }
+
+  &__close {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: s(24);
+    height: s(24);
+    margin-right: s(-6);
+    padding: 0;
+    transition: color 0.3s;
+
+    &:hover {
+      color: var(--color-primary);
+    }
+
+    svg {
+      width: s(12);
+      height: s(12);
+    }
+  }
+
+  &__nav {
+    flex-grow: 1;
+    overflow-y: auto;
+    overscroll-behavior: contain;
+    scrollbar-width: thin;
+    scrollbar-color: rgba(255, 255, 255, 0.12) transparent;
+  }
+
+  &__link {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
+    height: s(48);
+    padding: 0 s(16);
+    text-align: left;
+    text-transform: inherit;
+    letter-spacing: inherit;
+    transition: color 0.3s;
+
+    &:hover {
+      color: var(--color-primary);
+    }
+  }
+
+  &__arrow {
+    width: s(10);
+    height: s(6);
+    transition: transform 0.3s;
+  }
+
+  &__toggle[aria-expanded="true"] &__arrow {
+    transform: rotate(180deg);
+  }
+
+  &__sub {
+    display: grid;
+    grid-template-rows: 0fr;
+    background: var(--color-darker);
+    visibility: hidden;
+    transition: grid-template-rows 0.3s, visibility 0.3s;
+  }
+
+  &__toggle[aria-expanded="true"] + &__sub {
+    grid-template-rows: 1fr;
+    visibility: visible;
+  }
+
+  &__sub-list {
+    min-height: 0;
+    overflow: hidden;
+  }
+
+  &__sub-link {
+    display: flex;
+    align-items: center;
+    height: s(32);
+    padding-inline: s(24);
+    transition: color 0.3s;
+
+    &:hover,
+    &.is-active {
+      color: var(--color-primary);
+    }
+  }
+
+  &__footer {
+    flex-shrink: 0;
+    padding: s(8);
+  }
+
+  // языки над кнопкой
+  &__lang {
+    display: none;
+    margin: s(-8) s(-8) s(8);
+
+    @include mobile {
+      display: block;
+    }
+  }
+
+  &__book {
+    display: flex;
+    align-items: center;
+    gap: s(8);
+    width: 100%;
+    height: s(48);
+    padding: s(8) s(12);
+    color: var(--color-dark);
+    background: var(--color-gray);
+    font: 500 s(14)/1 var(--font-secondary);
+    text-transform: inherit;
+    letter-spacing: inherit;
+    transition: background-color 0.3s;
+
+    &:hover {
+      background: var(--color-white);
+    }
+  }
+
+  &__book-icon {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: s(32);
+    height: s(32);
+    color: var(--color-cream);
+    background: var(--color-primary);
+  }
+}

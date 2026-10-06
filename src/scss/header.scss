@@ -1,0 +1,188 @@
+@use "functions" as *;
+
+.header {
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  color: #F1EFDF;
+  background: var(--color-dark);
+  font: 500 s(14)/1 var(--font-secondary);
+  text-transform: uppercase;
+  transition: box-shadow 0.3s;
+
+  &.scrolled {
+    box-shadow: 0 s(2) s(12) rgba(0, 0, 0, 0.08);
+  }
+
+  &__container {
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: s(24);
+    height: s(48);
+  }
+
+  &__nav {
+    @include tablet {
+      display: none;
+    }
+  }
+
+  &__menu {
+    display: flex;
+    gap: s(16);
+  }
+
+  &__menu-item {
+    position: relative;
+    display: flex;
+    align-items: center;
+    height: s(48);
+  }
+
+  &__sub {
+    position: absolute;
+    top: 100%;
+    left: s(-16);
+    min-width: s(200);
+    padding-block: s(14);
+    background: var(--color-dark);
+    white-space: nowrap;
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.3s, visibility 0.3s;
+  }
+
+  &__menu-item:hover &__sub,
+  &__menu-item:focus-within &__sub {
+    opacity: 1;
+    visibility: visible;
+  }
+
+  &__sub-link,
+  &__lang-link {
+    display: block;
+    padding: s(10) s(24);
+  }
+
+  &__menu-link,
+  &__sub-link,
+  &__lang-btn,
+  &__lang-link,
+  &__burger {
+    transition: color 0.3s;
+
+    &:hover,
+    &.is-active {
+      color: var(--color-primary);
+    }
+  }
+
+  &__logo {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+
+    @include tablet {
+      position: static;
+      transform: none;
+    }
+
+    img {
+      width: s(91);
+      height: auto;
+    }
+  }
+
+  &__actions {
+    display: flex;
+    align-items: center;
+    gap: s(16);
+  }
+
+  &__book {
+    display: flex;
+    align-items: center;
+    gap: s(6);
+    height: s(24);
+    padding: s(4) s(8);
+    color: var(--color-dark);
+    background: var(--color-cream);
+    text-transform: inherit;
+    letter-spacing: inherit;
+    transition: background-color 0.3s;
+
+    &:hover {
+      background: var(--color-primary);
+    }
+
+    @include mobile {
+      display: none;
+    }
+  }
+
+  &__book-icon {
+    width: s(8);
+    height: s(8);
+  }
+
+  &__lang {
+    position: relative;
+    display: flex;
+    align-items: center;
+    height: s(48);
+
+    @include mobile {
+      display: none;
+    }
+  }
+
+  &__lang-btn,
+  &__burger {
+    padding: 0;
+    text-transform: inherit;
+    letter-spacing: inherit;
+  }
+
+  &__lang-btn {
+    &::before {
+      content: "{ ";
+    }
+
+    &::after {
+      content: " }";
+    }
+  }
+
+  &__burger {
+    &::before {
+      content: "{ ";
+    }
+
+    &::after {
+      content: " }";
+    }
+  }
+
+  &__lang-list {
+    position: absolute;
+    top: 100%;
+    left: s(-16);
+    min-width: s(200);
+    padding-block: s(14);
+    background: var(--color-dark);
+    white-space: nowrap;
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.3s, visibility 0.3s;
+  }
+
+  &__lang:hover &__lang-list,
+  &__lang:has(:focus-visible) &__lang-list,
+  &__lang.open &__lang-list {
+    opacity: 1;
+    visibility: visible;
+  }
+}

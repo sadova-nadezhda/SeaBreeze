@@ -1,0 +1,19 @@
+<div class="modals">
+  <div class="modal" data-type="feedback" role="dialog" aria-modal="true" aria-labelledby="modal-feedback-title">
+    <button class="modal__close" type="button" aria-label="Закрыть">×</button>
+    <h2 class="modal__title" id="modal-feedback-title">Оставить заявку</h2>
+    <form class="modal__form form">
+      <input class="modal__input" type="text" name="name" placeholder="Имя" required>
+      <input class="modal__input" type="tel" name="phone" placeholder="+7 (___) ___ ____" required>
+      <input type="hidden" name="topic" data-modal-topic>
+      <button class="modal__btn" type="submit">Отправить</button>
+    </form>
+  </div>
+
+  <div class="modal" data-type="success" role="dialog" aria-modal="true" aria-labelledby="modal-success-title">
+    <button class="modal__close" type="button" aria-label="Закрыть">×</button>
+    <h2 class="modal__title" id="modal-success-title">Заявка отправлена</h2>
+    <p class="modal__text">Мы свяжемся с вами в ближайшее время.</p>
+    <button class="modal__btn" type="button" data-modal-close>Хорошо</button>
+  </div>
+</div>

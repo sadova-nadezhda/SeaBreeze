@@ -1,0 +1,84 @@
+@use "../functions" as *;
+
+.banya {
+  padding-block: s(64);
+  overflow: hidden;
+  overflow: clip;
+
+  @include mobile {
+    padding-block: s(42);
+  }
+
+  &__head {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: s(24);
+    text-align: center;
+  }
+
+  &__title {
+    max-width: s(925);
+  }
+
+  &__btn {
+    display: flex;
+    align-items: center;
+    gap: s(8);
+    height: s(48);
+    padding: s(8) s(12);
+    background: var(--color-gray);
+    font: 500 s(14)/1.2 var(--font-secondary);
+    text-transform: uppercase;
+    transition: background-color 0.3s;
+
+    &:hover {
+      background: var(--color-white);
+    }
+  }
+
+  &__btn-icon {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: s(32);
+    height: s(32);
+    background: var(--color-primary);
+  }
+
+  &__slider {
+    margin-top: s(42);
+    overflow: visible;
+
+    @include tablet {
+      margin-top: s(32);
+    }
+
+    @include mobile {
+      margin-top: s(24);
+    }
+  }
+
+  &__slide {
+    width: s(692);
+
+    @include tablet {
+      width: s(560);
+    }
+
+    @include mobile {
+      width: s(320);
+    }
+  }
+
+  &__img {
+    width: 100%;
+    height: auto;
+    aspect-ratio: 692 / 456;
+    object-fit: cover;
+
+    @include mobile {
+      aspect-ratio: 320 / 343;
+    }
+  }
+}

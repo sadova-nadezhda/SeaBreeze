@@ -1,0 +1,174 @@
+@use "../functions" as *;
+
+.contacts {
+  padding-block: s(64);
+
+  @include mobile {
+    padding-block: s(42);
+  }
+
+  &__grid {
+    display: grid;
+    grid-template-columns: repeat(6, 1fr);
+    gap: s(8);
+    margin-top: s(32);
+
+    @include mobile {
+      grid-template-columns: 1fr;
+      margin-top: s(24);
+    }
+  }
+
+  &__card {
+    grid-column: span 3;
+    min-width: 0;
+
+    @include mobile {
+      grid-column: auto;
+    }
+  }
+
+  &__img {
+    width: 100%;
+    height: auto;
+    aspect-ratio: 692 / 360;
+    object-fit: cover;
+
+    @include mobile {
+      aspect-ratio: 343 / 248;
+    }
+  }
+
+  &__info {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: s(24);
+    min-width: 0;
+    padding: s(24);
+    background: var(--color-white);
+
+    @include mobile {
+      gap: s(16);
+      padding: s(16);
+    }
+
+    &--small {
+      grid-column: span 2;
+
+      @include mobile {
+        grid-column: auto;
+        gap: s(4);
+      }
+    }
+
+    &--accent {
+      color: var(--color-white);
+      background: var(--color-primary);
+    }
+  }
+
+  &__label {
+    color: rgba(0, 0, 0, 0.4);
+    font: 500 s(14)/1.3 var(--font-secondary);
+    text-transform: uppercase;
+  }
+
+  &__info--accent &__label {
+    color: rgba(255, 255, 255, 0.5);
+  }
+
+  &__value {
+    max-width: 100%;
+    font: 700 s(20)/1.2 var(--font-main);
+    text-transform: uppercase;
+    overflow-wrap: anywhere;
+  }
+
+  &__info--small &__value {
+    @include tablet {
+      font-size: s(16);
+    }
+  }
+
+  a#{&}__value {
+    transition: color 0.3s;
+
+    &:hover {
+      color: #8D060E;
+    }
+  }
+
+  &__link {
+    grid-column: span 2;
+    display: flex;
+    min-width: 0;
+    height: s(56);
+    background: var(--color-white);
+    font: 400 s(20)/1.2 var(--font-main);
+    text-transform: uppercase;
+    transition: color 0.3s;
+
+    @include desktop {
+      position: relative;
+      overflow: hidden;
+
+      &:hover {
+        color: #8D060E;
+      }
+    }
+
+    @include tablet {
+      gap: s(4);
+      background: none;
+      font-size: s(16);
+    }
+
+    @include mobile {
+      grid-column: auto;
+    }
+  }
+
+  &__link-name {
+    display: flex;
+    flex-grow: 1;
+    align-items: center;
+    min-width: 0;
+    padding-inline: s(24);
+
+    @include tablet {
+      padding-inline: s(12);
+      background: var(--color-white);
+    }
+  }
+
+  &__link-img {
+    flex-shrink: 0;
+    width: s(200);
+    height: 100%;
+    object-fit: cover;
+
+    @include desktop {
+      position: absolute;
+      top: 0;
+      right: 0;
+      // запас 2px: при дробных размерах край картинки просвечивал у правой границы
+      transform: translateX(calc(100% + 2px));
+      transition: transform 0.4s;
+    }
+
+    @include tablet {
+      width: s(96);
+    }
+
+    @include mobile {
+      width: s(191);
+    }
+  }
+
+  &__link:hover &__link-img {
+    @include desktop {
+      transform: translateX(0);
+    }
+  }
+}

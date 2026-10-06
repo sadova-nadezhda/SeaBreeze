@@ -1,0 +1,129 @@
+@use "../functions" as *;
+
+.news {
+  padding-block: s(64);
+  overflow: hidden;
+  overflow: clip;
+
+  @include mobile {
+    padding-block: s(42);
+  }
+
+  &__container {
+    display: flex;
+    flex-direction: column;
+  }
+
+  &__title {
+    max-width: s(925);
+  }
+
+  &__slider {
+    width: 100%;
+    margin-top: s(42);
+    overflow: visible;
+
+    @include tablet {
+      margin-top: s(32);
+    }
+
+    @include mobile {
+      margin-top: s(24);
+    }
+  }
+
+  &__card {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    width: s(459);
+    height: auto;
+    background: var(--color-white);
+
+    @include mobile {
+      width: s(361);
+    }
+  }
+
+  &__img {
+    width: 100%;
+    height: auto;
+    aspect-ratio: 459 / 360;
+    object-fit: cover;
+
+    @include mobile {
+      aspect-ratio: 361 / 260;
+    }
+  }
+
+  &__body {
+    display: flex;
+    flex-direction: column;
+    flex-grow: 1;
+    align-items: flex-start;
+    min-height: s(242);
+    padding: s(24);
+
+    @include mobile {
+      min-height: 0;
+      padding: s(16);
+    }
+  }
+
+  &__meta,
+  &__btn,
+  &__all {
+    font: 500 s(14)/1.3 var(--font-secondary);
+    text-transform: uppercase;
+  }
+
+  &__meta {
+    color: rgba(0, 0, 0, 0.4);
+  }
+
+  &__name {
+    margin-block: s(16) s(24);
+    font: 700 s(20)/1.2 var(--font-main);
+    text-transform: uppercase;
+  }
+
+  &__btn,
+  &__all {
+    display: flex;
+    align-items: center;
+    background: var(--color-gray);
+    transition: background-color 0.3s ease-out, color 0.3s ease-out;
+  }
+
+  &__btn {
+    height: s(40);
+    margin-top: auto;
+    padding: s(12);
+
+    &::after {
+      content: "";
+      position: absolute;
+      inset: 0;
+    }
+  }
+
+  &__card:hover &__btn {
+    color: var(--color-white);
+    background: var(--color-primary);
+  }
+
+  &__all {
+    align-self: center;
+    height: s(48);
+    margin-top: s(42);
+    padding: s(12);
+
+    &:hover {
+      background: var(--color-white);
+    }
+
+    @include mobile {
+      margin-top: s(24);
+    }
+  }
+}

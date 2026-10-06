@@ -1,0 +1,26 @@
+// Точка входа → dist/css/style.css
+@use "fonts";
+@use "lenis";
+@use "global";
+@use "header";
+@use "menu";
+@use "contact-btn";
+@use "book-icon";
+@use "footer";
+@use "modals";
+
+// Глобальные секции
+// @use "sections/feedback";
+
+// Остальные секции подключать сюда:
+@use "sections/hero";
+@use "sections/about";
+@use "sections/vip";
+@use "sections/spaces";
+@use "sections/banya";
+@use "sections/spa";
+@use "sections/news";
+@use "sections/dishes";
+@use "sections/reviews";
+@use "sections/contacts";
+@use "sections/faq";

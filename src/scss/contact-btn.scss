@@ -1,0 +1,22 @@
+@use "functions" as *;
+
+// Плавающая кнопка «Связаться с нами» у правого края окна
+.contact-btn {
+  position: fixed;
+  top: 50%;
+  right: var(--scrollbar-width); // не прыгает при блокировке скролла
+  z-index: 90;
+  padding: s(32) s(8);
+  color: var(--color-text);
+  background: var(--color-white);
+  font: 500 s(14)/1.4 var(--font-secondary);
+  letter-spacing: 0.02em;
+  text-transform: uppercase;
+  writing-mode: vertical-rl;
+  transform: translateY(-50%) rotate(180deg);
+  transition: background-color 0.3s;
+
+  &:hover {
+    background: var(--color-cream);
+  }
+}

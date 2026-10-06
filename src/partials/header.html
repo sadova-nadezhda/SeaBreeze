@@ -1,0 +1,121 @@
+<header class="header">
+  <div class="header__container container">
+    <nav class="header__nav" aria-label="Основное меню">
+      <ul class="header__menu">
+        <li class="header__menu-item">
+          <a class="header__menu-link @@if (page === 'banya') {is-active}" href="#">Общественная баня</a>
+        </li>
+        <li class="header__menu-item">
+          <a class="header__menu-link @@if (page === 'villas') {is-active}" href="#">Банные виллы</a>
+          <ul class="header__sub">
+            <li><a class="header__sub-link" href="#">Габала</a></li>
+            <li><a class="header__sub-link" href="#">Баку</a></li>
+            <li><a class="header__sub-link" href="#">Шеки</a></li>
+            <li><a class="header__sub-link" href="#">Шемаха</a></li>
+            <li><a class="header__sub-link" href="#">Гянджа</a></li>
+            <li><a class="header__sub-link" href="#">Ленкорань</a></li>
+          </ul>
+        </li>
+        <li class="header__menu-item">
+          <a class="header__menu-link @@if (page === 'spa') {is-active}" href="#">SPA-услуги</a>
+        </li>
+        <li class="header__menu-item">
+          <a class="header__menu-link @@if (page === 'contacts') {is-active}" href="#">Контакты</a>
+        </li>
+      </ul>
+    </nav>
+
+    <a class="header__logo" href="index.html" aria-label="Orlov Banya — на главную">
+      <img src="logo.svg" width="91" height="26" alt="Orlov Banya">
+    </a>
+
+    <div class="header__actions">
+      <a class="header__book" href="#">
+        ✦ Забронировать
+      </a>
+
+      <div class="header__lang">
+        <button class="header__lang-btn" type="button" aria-haspopup="true" aria-expanded="false" aria-label="Выбор языка">Русский</button>
+        <ul class="header__lang-list">
+          <li><a class="header__lang-link is-active" href="#" lang="ru">Русский</a></li>
+          <li><a class="header__lang-link" href="#" lang="az">Азербайджанский</a></li>
+          <li><a class="header__lang-link" href="#" lang="en">English</a></li>
+        </ul>
+      </div>
+
+      <button class="header__burger menu-btn" type="button" aria-controls="menu" aria-expanded="false">Навигация</button>
+    </div>
+  </div>
+</header>
+
+<div class="menu" id="menu" aria-hidden="true">
+  <div class="menu__panel" role="dialog" aria-modal="true" aria-labelledby="menu-title">
+    <div class="menu__head">
+      <p class="menu__title" id="menu-title">Навигация</p>
+      <button class="menu__close" type="button" aria-label="Закрыть меню">
+        <svg viewBox="0 0 12 12" aria-hidden="true">
+          <path d="M1 1l10 10M11 1L1 11" fill="none" stroke="currentColor" stroke-width="1.5"/>
+        </svg>
+      </button>
+    </div>
+
+    <nav class="menu__nav" aria-label="Навигация по сайту" data-lenis-prevent>
+      <ul class="menu__list">
+        <li class="menu__item"><a class="menu__link" href="#">О комплексе</a></li>
+        <li class="menu__item"><a class="menu__link" href="#">Общественная баня</a></li>
+        <li class="menu__item">
+          <button class="menu__link menu__toggle" type="button" aria-expanded="false" aria-controls="menu-villas">
+            Банные виллы
+            <svg class="menu__arrow" viewBox="0 0 10 6" aria-hidden="true">
+              <path d="M1 1l4 4 4-4" fill="none" stroke="currentColor" stroke-width="1.2"/>
+            </svg>
+          </button>
+          <div class="menu__sub" id="menu-villas">
+            <ul class="menu__sub-list">
+              <li><a class="menu__sub-link" href="#">Габала</a></li>
+              <li><a class="menu__sub-link" href="#">Баку</a></li>
+              <li><a class="menu__sub-link" href="#">Шеки</a></li>
+              <li><a class="menu__sub-link" href="#">Шемаха</a></li>
+              <li><a class="menu__sub-link" href="#">Гянджа</a></li>
+              <li><a class="menu__sub-link" href="#">Ленкорань</a></li>
+            </ul>
+          </div>
+        </li>
+        <li class="menu__item"><a class="menu__link" href="#">Меню</a></li>
+        <li class="menu__item"><a class="menu__link" href="#">Франшиза</a></li>
+        <li class="menu__item"><a class="menu__link" href="#">Новости</a></li>
+        <li class="menu__item"><a class="menu__link" href="#">Акции</a></li>
+        <li class="menu__item"><a class="menu__link" href="#">SPA-услуги</a></li>
+        <li class="menu__item"><a class="menu__link" href="#">Программа лояльности</a></li>
+        <li class="menu__item"><a class="menu__link" href="#">Сертификаты</a></li>
+        <li class="menu__item"><a class="menu__link" href="#">Контакты</a></li>
+      </ul>
+    </nav>
+
+    <div class="menu__footer">
+      <div class="menu__lang">
+        <button class="menu__link menu__toggle" type="button" aria-expanded="false" aria-controls="menu-lang">
+          Русский
+          <svg class="menu__arrow" viewBox="0 0 10 6" aria-hidden="true">
+            <path d="M1 1l4 4 4-4" fill="none" stroke="currentColor" stroke-width="1.2"/>
+          </svg>
+        </button>
+        <div class="menu__sub" id="menu-lang">
+          <ul class="menu__sub-list">
+            <li><a class="menu__sub-link is-active" href="#" lang="ru">Русский</a></li>
+            <li><a class="menu__sub-link" href="#" lang="az">Азербайджанский</a></li>
+            <li><a class="menu__sub-link" href="#" lang="en">English</a></li>
+          </ul>
+        </div>
+      </div>
+      <button class="menu__book modal-btn" type="button" data-type="feedback">
+        <span class="menu__book-icon">
+          @@include('icons/book.html')
+        </span>
+        Забронировать посещение
+      </button>
+    </div>
+  </div>
+</div>
+
+<a class="contact-btn" href="#">Связаться с нами</a>

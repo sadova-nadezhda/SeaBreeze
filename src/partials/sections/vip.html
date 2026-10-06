@@ -1,0 +1,48 @@
+<section class="vip">
+  <div class="vip__container container">
+    <div class="vip__head">
+      <h2 class="vip__title text-up">Для более уединенного отдыха в общественной бане предусмотрены 2 VIP-кабинета.</h2>
+      <p class="vip__text">Бронирование осуществляется с внесением депозита. Подробная информация о вместимости, оснащении и концепции кабинетов будет предоставлена дополнительно.</p>
+      <button class="vip__btn modal-btn" type="button" data-type="feedback">
+        <span class="vip__btn-icon">
+          @@include('icons/book.html')
+        </span>
+        Забронировать
+      </button>
+    </div>
+
+    <div class="vip__tabs" role="tablist" aria-label="Выбор кабинета">
+      <button class="vip__tab is-active" type="button" role="tab" id="vip-tab-gabala" aria-controls="vip-gabala" aria-selected="true">
+        @@include('icons/book-square.html', { "class": "vip__tab-icon" })
+        Габала
+      </button>
+      <button class="vip__tab" type="button" role="tab" id="vip-tab-baku" aria-controls="vip-baku" aria-selected="false">
+        @@include('icons/book-square.html', { "class": "vip__tab-icon" })
+        Баку
+      </button>
+      <button class="vip__tab" type="button" role="tab" id="vip-tab-sheki" aria-controls="vip-sheki" aria-selected="false">
+        @@include('icons/book-square.html', { "class": "vip__tab-icon" })
+        Шеки
+      </button>
+      <button class="vip__tab" type="button" role="tab" id="vip-tab-shamakhi" aria-controls="vip-shamakhi" aria-selected="false">
+        @@include('icons/book-square.html', { "class": "vip__tab-icon" })
+        Шемаха
+      </button>
+      <button class="vip__tab" type="button" role="tab" id="vip-tab-ganja" aria-controls="vip-ganja" aria-selected="false">
+        @@include('icons/book-square.html', { "class": "vip__tab-icon" })
+        Гянджа
+      </button>
+      <button class="vip__tab" type="button" role="tab" id="vip-tab-lankaran" aria-controls="vip-lankaran" aria-selected="false">
+        @@include('icons/book-square.html', { "class": "vip__tab-icon" })
+        Ленкорань
+      </button>
+    </div>
+
+    @@include('sections/vip-panel.html', { "id": "gabala", "name": "Габала", "active": true, "main": "hero-img.png", "left": "about-img-2.png", "right": "about-img-1.png" })
+    @@include('sections/vip-panel.html', { "id": "baku", "name": "Баку", "active": false, "main": "about-img-1.png", "left": "hero-img.png", "right": "about-img-2.png" })
+    @@include('sections/vip-panel.html', { "id": "sheki", "name": "Шеки", "active": false, "main": "about-img-2.png", "left": "about-img-1.png", "right": "hero-img.png" })
+    @@include('sections/vip-panel.html', { "id": "shamakhi", "name": "Шемаха", "active": false, "main": "hero-img.png", "left": "about-img-2.png", "right": "about-img-1.png" })
+    @@include('sections/vip-panel.html', { "id": "ganja", "name": "Гянджа", "active": false, "main": "about-img-1.png", "left": "hero-img.png", "right": "about-img-2.png" })
+    @@include('sections/vip-panel.html', { "id": "lankaran", "name": "Ленкорань", "active": false, "main": "about-img-2.png", "left": "about-img-1.png", "right": "hero-img.png" })
+  </div>
+</section>
