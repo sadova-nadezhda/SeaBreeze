@@ -69,7 +69,33 @@
     font: 500 s(12)/1.5 var(--font-secondary);
   }
 
-  // вариант с шапкой по центру (страница банных вилл)
+  &__btn {
+    display: flex;
+    align-items: center;
+    gap: s(8);
+    height: s(48);
+    padding: s(8) s(12);
+    background: var(--color-gray);
+    font: 500 s(14)/1.4 var(--font-secondary);
+    text-transform: uppercase;
+    transition: background-color 0.3s;
+
+    &:hover {
+      background: var(--color-white);
+    }
+  }
+
+  &__btn-icon {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: s(32);
+    height: s(32);
+    color: var(--color-white);
+    background: var(--color-primary);
+  }
+
+  // вариант с шапкой по центру (страницы банных вилл)
   &--center &__head {
     display: flex;
     flex-direction: column;

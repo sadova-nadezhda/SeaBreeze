@@ -1,0 +1,114 @@
+@use "../functions" as *;
+
+.ritual {
+  position: relative;
+  display: flex;
+  align-items: center;
+  min-height: 100vh;
+  padding-block: s(64);
+
+  @include mobile {
+    padding-block: s(42);
+  }
+
+  &__bg {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+
+  &__container {
+    position: relative;
+    width: 100%;
+  }
+
+  &__card {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    max-width: s(1308);
+    margin-inline: auto;
+
+    @include tablet {
+      grid-template-columns: 1fr;
+    }
+  }
+
+  &__content {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    padding: s(24);
+    background: var(--color-white);
+
+    @include mobile {
+      padding: s(16);
+    }
+  }
+
+  &__text {
+    max-width: s(460);
+    margin-top: s(16);
+    letter-spacing: -0.04em;
+  }
+
+  &__label {
+    margin-top: s(24);
+    font: 700 s(20)/1.2 var(--font-main);
+  }
+
+  &__tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: s(8);
+    margin-top: s(16);
+  }
+
+  &__tag,
+  &__btn {
+    display: flex;
+    align-items: center;
+    background: var(--color-gray);
+    font: 500 s(14)/1.2 var(--font-secondary);
+    text-transform: uppercase;
+  }
+
+  &__tag {
+    min-height: s(32);
+    padding: s(8) s(12);
+  }
+
+  &__btn {
+    gap: s(8);
+    height: s(48);
+    margin-top: s(24);
+    padding: s(8) s(12);
+    transition: background-color 0.3s, color 0.3s;
+
+    &:hover {
+      color: var(--color-white);
+      background: var(--color-primary);
+    }
+  }
+
+  &__btn-icon {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: s(32);
+    height: s(32);
+    color: var(--color-white);
+    background: var(--color-primary);
+  }
+
+  &__media {
+    min-height: s(372);
+    border: s(4) solid var(--color-white);
+
+    @include tablet {
+      min-height: 0;
+      aspect-ratio: 647 / 364;
+    }
+  }
+}
