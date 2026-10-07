@@ -1,7 +1,7 @@
 import { $ } from "./helpers.js";
 
 // ======================
-// Schedule (секция закрепляется, расписание прокручивается внутри неё)
+// Schedule 
 // ======================
 export const initSchedule = () => {
   const section = $(".schedule");
@@ -13,13 +13,11 @@ export const initSchedule = () => {
 
   gsap.registerPlugin(ScrollTrigger);
 
-  // дальше карточку двигает скролл страницы — внутренний скролл окна отключаем
   section.classList.add("is-pinned");
   win.removeAttribute("data-lenis-prevent");
 
   const header = $(".header");
   const headerHeight = () => (header ? header.offsetHeight : 0);
-  // на сколько карточка (с отступами окна) выше самого окна
   const distance = () => {
     const style = getComputedStyle(win);
     const content = card.offsetHeight + parseFloat(style.paddingTop) + parseFloat(style.paddingBottom);
