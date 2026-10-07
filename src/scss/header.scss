@@ -14,6 +14,11 @@
     box-shadow: 0 s(2) s(12) rgba(0, 0, 0, 0.08);
   }
 
+  // шапка проявляется в интро hero (hero.js)
+  .js:has(.hero:not(.is-ready)) &__container {
+    opacity: 0;
+  }
+
   &__container {
     position: relative;
     display: flex;

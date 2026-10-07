@@ -2,7 +2,7 @@ import { $, $$ } from "./helpers.js";
 import { refreshLayout } from "./layout.js";
 
 // ======================
-// FAQ (аккордеон: открыт только один пункт)
+// FAQ (аккордеон)
 // ======================
 export const initFaq = () => {
   const list = $(".faq__list");
@@ -17,7 +17,6 @@ export const initFaq = () => {
     });
   });
 
-  // высота страницы меняется после раскрытия
   list.addEventListener("transitionend", (e) => {
     if (e.propertyName === "grid-template-rows") refreshLayout();
   });

@@ -6,6 +6,15 @@
   height: calc(100svh - #{s(48)});
   min-height: s(560);
   color: var(--color-white);
+  background: var(--color-dark);
+
+  // до старта интро (hero.js) содержимое скрыто, чтобы не мигало
+  .js &:not(.is-ready) {
+    .hero__slider,
+    .hero__container {
+      visibility: hidden;
+    }
+  }
 
   &__slider {
     position: absolute;

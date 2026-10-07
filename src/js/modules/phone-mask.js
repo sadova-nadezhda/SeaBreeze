@@ -17,12 +17,9 @@ export const initPhoneMask = () => {
       ? value.slice(head.length).replace(/\D/g, "")
       : value.replace(/\D/g, "");
 
-    // Номер набирают и через +7, и через 8 — это одно и то же.
-    // Ведущую 8 убираем сразу, иначе номер съезжает и теряется последняя цифра.
     if (prefix === "7" && body.startsWith("8")) {
       body = body.slice(1);
     } else if (body.length > free && body.startsWith(prefix)) {
-      // Код страны при вставке целого номера: 7 747 123 45 67
       body = body.slice(prefix.length);
     }
 

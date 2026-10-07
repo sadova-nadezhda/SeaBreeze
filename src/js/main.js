@@ -17,6 +17,7 @@ import { initReviews } from "./modules/reviews.js";
 import { initFaq } from "./modules/faq.js";
 import { initModals } from "./modules/modals.js";
 import { initPhoneMask } from "./modules/phone-mask.js";
+import { initReveal } from "./modules/reveal.js";
 
 (() => {
   "use strict";
@@ -62,8 +63,9 @@ import { initPhoneMask } from "./modules/phone-mask.js";
     initReviews();
     initFaq();
     initPhoneMask();
+    initReveal();
     const menu = initMenu({ scrollLock });
-    const modals = initModals({ scrollLock, closeMobileMenu: menu?.close }); // modals.open("success") — открыть из кода
+    const modals = initModals({ scrollLock, closeMobileMenu: menu?.close });
 
     refreshLayout();
 

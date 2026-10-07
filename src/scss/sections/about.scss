@@ -84,6 +84,18 @@
 
   &__slide {
     width: s(692);
+    opacity: 0.4;
+    transition: opacity 0.6s;
+
+    &.swiper-slide-active {
+      opacity: 1;
+    }
+
+    @media (min-width: 768px) {
+      &.swiper-slide-next {
+        opacity: 1;
+      }
+    }
 
     @include tablet {
       width: s(560);

@@ -8,9 +8,8 @@ export const initFooter = () => {
   if (!footer) return;
 
   const toggles = $$(".footer__toggle", footer);
-  const mobile = window.matchMedia("(max-width: 767px)"); // = @mixin mobile
+  const mobile = window.matchMedia("(max-width: 767px)");
 
-  // На десктопе колонки всегда раскрыты — заголовки не кнопки
   const sync = () => toggles.forEach((toggle) => { toggle.disabled = !mobile.matches; });
   sync();
   mobile.addEventListener("change", sync);

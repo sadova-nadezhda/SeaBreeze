@@ -3,7 +3,7 @@ import { $ } from "./helpers.js";
 // ======================
 // SPA (волны на canvas, расходятся из правого нижнего угла)
 // ======================
-const PERIOD = 17; // секунд на полный цикл волны
+const PERIOD = 17;
 const COUNT = 5;
 const INTENSITY = 0.39;
 const SOFTNESS = 69;
@@ -81,7 +81,7 @@ export const initSpa = () => {
     }
   };
 
-  // анимация идёт только когда блок на экране, вкладка активна и движение не отключено в системе
+  // анимация идёт только когда блок на экране
   const paused = () => !visible || document.hidden || reduced.matches;
 
   const frame = (now) => {
