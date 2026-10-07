@@ -91,6 +91,10 @@
 
   &__text {
     margin-block: s(32);
+
+    &:last-child {
+      margin-bottom: 0;
+    }
   }
 
   // плашки под текстом (внутренние страницы)

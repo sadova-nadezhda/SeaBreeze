@@ -69,6 +69,26 @@
     font: 500 s(12)/1.5 var(--font-secondary);
   }
 
+  // вариант с шапкой по центру (страница банных вилл)
+  &--center &__head {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+  }
+
+  &--center &__title {
+    max-width: s(875);
+  }
+
+  &--center &__text {
+    max-width: s(460);
+  }
+
+  &--center &__tags {
+    justify-content: center;
+  }
+
   &__slider {
     margin-top: s(42);
     overflow: visible;
