@@ -62,6 +62,9 @@ button {
 
 // Квадратный вариант (табы): при наведении и у активного таба верхний квадрат
 // опускается в центр, боковые и нижняя стороны растягиваются между углами
+a:hover,
+a:focus-visible,
+a.is-active,
 button:hover,
 button:focus-visible,
 button.is-active {

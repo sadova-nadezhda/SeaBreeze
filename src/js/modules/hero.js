@@ -27,7 +27,7 @@ export const initHero = () => {
   playIntro(hero);
 
   const slider = $(".hero__slider", hero);
-  if (slider && typeof Swiper !== "undefined") {
+  if (slider && $$(".hero__slide", slider).length > 1 && typeof Swiper !== "undefined") {
     new Swiper(slider, {
       effect: "fade",
       fadeEffect: { crossFade: true },

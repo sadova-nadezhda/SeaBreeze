@@ -1,0 +1,144 @@
+@use "../functions" as *;
+
+.cuisine {
+  padding-block: s(64);
+
+  @include mobile {
+    padding-block: s(42);
+  }
+
+  // якоря категорий: при скролле закрепляются под шапкой
+  &__tabs {
+    position: sticky;
+    top: s(48);
+    z-index: 10;
+    display: flex;
+    flex-wrap: wrap;
+    gap: s(8);
+    margin-top: s(30);
+    padding-block: s(12);
+    background: var(--color-bg);
+
+    @include tablet {
+      flex-wrap: nowrap;
+      margin-top: s(20);
+      margin-inline: s(-24);
+      padding-inline: s(24);
+      overflow-x: auto;
+      scrollbar-width: none;
+
+      &::-webkit-scrollbar {
+        display: none;
+      }
+    }
+
+    @include mobile {
+      margin-top: s(12);
+      margin-inline: s(-16);
+      padding-inline: s(16);
+    }
+  }
+
+  &__tab {
+    display: flex;
+    align-items: center;
+    flex-shrink: 0;
+    gap: s(16);
+    height: s(40);
+    padding: s(8) s(12);
+    background: var(--color-gray);
+    font: 500 s(14)/1.4 var(--font-secondary);
+    text-transform: uppercase;
+    transition: color 0.3s, background-color 0.3s;
+
+    &:hover {
+      background: var(--color-white);
+    }
+
+    &.is-active {
+      color: var(--color-cream);
+      background: var(--color-primary);
+    }
+  }
+
+  &__tab-icon {
+    color: var(--color-primary);
+    transition: color 0.3s;
+  }
+
+  &__tab.is-active &__tab-icon {
+    color: var(--color-cream);
+  }
+
+  &__group {
+    margin-top: s(64);
+
+    @include mobile {
+      margin-top: s(42);
+    }
+  }
+
+  // первая группа стоит ближе к якорям
+  &__tabs + &__group {
+    margin-top: s(42);
+
+    @include mobile {
+      margin-top: s(24);
+    }
+  }
+
+  &__subtitle {
+    font: 700 s(32)/1 var(--font-main);
+
+    @include tablet {
+      font-size: s(28);
+    }
+
+    @include mobile {
+      font-size: s(24);
+    }
+  }
+
+  &__list {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: s(8);
+    margin-top: s(24);
+
+    @include mobile {
+      grid-template-columns: 1fr;
+    }
+  }
+
+  &__item {
+    padding: s(24);
+    background: var(--color-white);
+
+    @include mobile {
+      padding: s(16);
+    }
+  }
+
+  &__item-head {
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+    gap: s(16);
+  }
+
+  &__name,
+  &__price {
+    font: 500 s(18)/1.3 var(--font-secondary);
+    text-transform: uppercase;
+  }
+
+  &__price {
+    flex-shrink: 0;
+    color: var(--color-primary);
+  }
+
+  &__desc {
+    margin-top: s(8);
+    letter-spacing: -0.04em;
+  }
+}

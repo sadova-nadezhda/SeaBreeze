@@ -1,0 +1,87 @@
+<section class="cuisine" id="cuisine">
+  <div class="cuisine__container container">
+    <h2 class="cuisine__title text-up reveal-blur">Кухня Orlov Banya</h2>
+
+    <nav class="cuisine__tabs" aria-label="Категории блюд">
+      <a class="cuisine__tab is-active reveal-blur" href="#cuisine">
+        @@include('icons/book-square.html', { "class": "cuisine__tab-icon" })
+        Все блюда
+      </a>
+      <a class="cuisine__tab reveal-blur" href="#cuisine-breakfast">
+        @@include('icons/book-square.html', { "class": "cuisine__tab-icon" })
+        Завтраки
+      </a>
+      <a class="cuisine__tab reveal-blur" href="#cuisine-cold">
+        @@include('icons/book-square.html', { "class": "cuisine__tab-icon" })
+        Холодные закуски
+      </a>
+      <a class="cuisine__tab reveal-blur" href="#cuisine-hot">
+        @@include('icons/book-square.html', { "class": "cuisine__tab-icon" })
+        Горячие закуски
+      </a>
+      <a class="cuisine__tab reveal-blur" href="#cuisine-salads">
+        @@include('icons/book-square.html', { "class": "cuisine__tab-icon" })
+        Салаты
+      </a>
+      <a class="cuisine__tab reveal-blur" href="#cuisine-soups">
+        @@include('icons/book-square.html', { "class": "cuisine__tab-icon" })
+        Супы
+      </a>
+      <a class="cuisine__tab reveal-blur" href="#cuisine-company">
+        @@include('icons/book-square.html', { "class": "cuisine__tab-icon" })
+        Блюда на компанию
+      </a>
+      <a class="cuisine__tab reveal-blur" href="#cuisine-grill">
+        @@include('icons/book-square.html', { "class": "cuisine__tab-icon" })
+        Блюда на мангале
+      </a>
+      <a class="cuisine__tab reveal-blur" href="#cuisine-main">
+        @@include('icons/book-square.html', { "class": "cuisine__tab-icon" })
+        Основные блюда
+      </a>
+      <a class="cuisine__tab reveal-blur" href="#cuisine-sides">
+        @@include('icons/book-square.html', { "class": "cuisine__tab-icon" })
+        Гарниры
+      </a>
+      <a class="cuisine__tab reveal-blur" href="#cuisine-desserts">
+        @@include('icons/book-square.html', { "class": "cuisine__tab-icon" })
+        Десерты
+      </a>
+      <a class="cuisine__tab reveal-blur" href="#cuisine-drinks">
+        @@include('icons/book-square.html', { "class": "cuisine__tab-icon" })
+        Чай и напитки
+      </a>
+    </nav>
+
+    <div class="cuisine__group" id="cuisine-cold">
+      <h3 class="cuisine__subtitle text-up reveal-blur">Холодные закуски</h3>
+      <ul class="cuisine__list">
+        @@include('sections/cuisine-item.html', { "name": "Овощное ассорти", "text": "Бакинские томаты, огурцы, свежая зелень", "price": "18" })
+        @@include('sections/cuisine-item.html', { "name": "Сырное ассорти", "text": "Ассорти локальных сыров, мёд, орехи", "price": "18" })
+        @@include('sections/cuisine-item.html', { "name": "Рулеты из баклажана", "text": "Баклажан, ореховая начинка, зелень", "price": "16" })
+        @@include('sections/cuisine-item.html', { "name": "Домашние соленья", "text": "Сезонные овощи и пряные травы", "price": "14" })
+        @@include('sections/cuisine-item.html', { "name": "Мясное ассорти", "text": "Отборные мясные деликатесы", "price": "32" })
+      </ul>
+    </div>
+
+    <div class="cuisine__group" id="cuisine-grill">
+      <h3 class="cuisine__subtitle text-up reveal-blur">Блюда на мангале</h3>
+      <ul class="cuisine__list">
+        @@include('sections/cuisine-item.html', { "name": "Люля-кебаб из баранины", "text": "Лаваш, лук, сумах, свежая зелень", "price": "26" })
+        @@include('sections/cuisine-item.html', { "name": "Тика-кебаб", "text": "Баранина на углях, томаты, зелень", "price": "29" })
+        @@include('sections/cuisine-item.html', { "name": "Кебаб из курицы", "text": "Куриное филе, овощи на углях", "price": "22" })
+        @@include('sections/cuisine-item.html', { "name": "Дорадо на углях", "text": "Лимон, зелень, сезонные овощи", "price": "38" })
+        @@include('sections/cuisine-item.html', { "name": "Овощи на мангале", "text": "Баклажан, томаты, перец", "price": "15" })
+        @@include('sections/cuisine-item.html', { "name": "Овощи на мангале", "text": "Баклажан, томаты, перец", "price": "15" })
+      </ul>
+    </div>
+
+    <div class="cuisine__group" id="cuisine-company">
+      <h3 class="cuisine__subtitle text-up reveal-blur">Блюда на компанию</h3>
+      <ul class="cuisine__list">
+        @@include('sections/cuisine-item.html', { "name": "Большой мясной сет Orlov", "text": "Ассорти кебабов, овощи на углях, лаваш, соусы", "price": "95" })
+        @@include('sections/cuisine-item.html', { "name": "Азербайджанское застолье", "text": "Долма, кутабы, сыры, соленья, зелень и горячий хлеб", "price": "85" })
+      </ul>
+    </div>
+  </div>
+</section>

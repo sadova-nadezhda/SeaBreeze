@@ -33,7 +33,8 @@
     flex-direction: column;
     align-items: flex-start;
     justify-content: center;
-    min-height: s(800);
+    min-height: 100vh;
+    min-height: 100svh;
     padding-block: s(64);
 
     @include tablet {
