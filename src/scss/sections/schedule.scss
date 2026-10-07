@@ -1,0 +1,104 @@
+@use "../functions" as *;
+
+.schedule {
+  height: calc(100vh - #{s(48)});
+  height: calc(100svh - #{s(48)});
+  min-height: s(560);
+  padding-block: s(24);
+
+  @include mobile {
+    padding-block: s(16);
+  }
+
+  &__container {
+    height: 100%;
+  }
+
+  &__frame {
+    position: relative;
+    height: 100%;
+    overflow: hidden;
+    background: #2B1209;
+
+    &::before {
+      content: "";
+      position: absolute;
+      inset: -50%;
+      background: radial-gradient(31.74% 31.74% at 49.33% 48.85%, #3A190B 0%, #83351D 50.96%, #2B1209 95.67%);
+      transform: rotate(-20deg);
+    }
+  }
+
+  &__window {
+    position: relative;
+    height: 100%;
+    padding: s(75) s(16);
+    overflow-y: auto;
+    scrollbar-width: none;
+
+    &::-webkit-scrollbar {
+      display: none;
+    }
+
+    @include mobile {
+      padding-block: s(32);
+    }
+  }
+
+  &.is-pinned &__window {
+    overflow: hidden;
+  }
+
+  &__card {
+    max-width: s(537);
+    margin-inline: auto;
+  }
+
+  // «окно» в карточке: фона нет, только белая рамка — сквозь него виден градиент секции
+  &__head {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    aspect-ratio: 537 / 393;
+    padding: s(16);
+    border: s(24) solid var(--color-white);
+    color: var(--color-white);
+    text-align: center;
+
+    @include mobile {
+      border-width: s(16);
+    }
+  }
+
+  &__list {
+    display: flex;
+    flex-direction: column;
+    gap: s(8);
+    padding: s(42) s(24);
+    background: var(--color-white);
+
+    @include mobile {
+      padding: s(24) s(16);
+    }
+  }
+
+  &__item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: s(6);
+    padding: s(14) s(16);
+    background: var(--color-gray);
+    text-align: center;
+  }
+
+  &__name {
+    color: rgba(0, 0, 0, 0.4);
+    font: 500 s(14)/1.3 var(--font-secondary);
+    text-transform: uppercase;
+  }
+
+  &__time {
+    font: 700 s(22)/1 var(--font-main);
+  }
+}

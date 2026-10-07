@@ -1,0 +1,101 @@
+@use "../functions" as *;
+
+.booking {
+  padding-block: s(64);
+
+  @include mobile {
+    padding-block: s(42);
+  }
+
+  &__list {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: s(8);
+
+    @include tablet {
+      grid-template-columns: repeat(2, 1fr);
+    }
+
+    @include mobile {
+      grid-template-columns: 1fr;
+    }
+  }
+
+  &__card {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+    background: var(--color-white);
+  }
+
+  &__img {
+    width: 100%;
+    height: auto;
+    aspect-ratio: 459 / 360;
+    object-fit: cover;
+    transition: transform 0.8s ease;
+
+    @include mobile {
+      aspect-ratio: 361 / 260;
+    }
+  }
+
+  &__body {
+    display: flex;
+    flex-direction: column;
+    flex-grow: 1;
+    align-items: flex-start;
+    z-index: 1;
+    min-height: s(242);
+    padding: s(24);
+    background: var(--color-white);
+
+    @include mobile {
+      min-height: 0;
+      padding: s(16);
+    }
+  }
+
+  &__meta,
+  &__btn {
+    font: 500 s(14)/1.3 var(--font-secondary);
+    text-transform: uppercase;
+  }
+
+  &__meta {
+    color: rgba(0, 0, 0, 0.4);
+  }
+
+  &__name {
+    margin-block: s(16) s(24);
+    font: 700 s(20)/1.2 var(--font-main);
+    text-transform: uppercase;
+  }
+
+  &__btn {
+    display: flex;
+    align-items: center;
+    height: s(40);
+    margin-top: auto;
+    padding: s(12);
+    background: var(--color-gray);
+    transition: background-color 0.3s ease-out, color 0.3s ease-out;
+
+    // кликабельна вся карточка
+    &::after {
+      content: "";
+      position: absolute;
+      inset: 0;
+    }
+  }
+
+  &__card:hover &__btn {
+    color: var(--color-white);
+    background: var(--color-primary);
+  }
+
+  &__card:hover &__img {
+    transform: scale(1.04);
+  }
+}

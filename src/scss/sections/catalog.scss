@@ -1,0 +1,69 @@
+@use "../functions" as *;
+
+.catalog {
+  padding-block: s(64);
+
+  @include mobile {
+    padding-block: s(42);
+  }
+
+  &__list {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: s(8);
+    margin-top: s(42);
+
+    @include tablet {
+      grid-template-columns: repeat(2, 1fr);
+      margin-top: s(32);
+    }
+
+    @include mobile {
+      grid-template-columns: 1fr;
+      margin-top: s(24);
+    }
+  }
+
+  &__card {
+    display: flex;
+    flex-direction: column;
+    background: var(--color-white);
+  }
+
+  &__img {
+    width: 100%;
+    height: auto;
+    aspect-ratio: 459 / 358;
+    object-fit: contain;
+  }
+
+  &__body {
+    display: flex;
+    flex-direction: column;
+    flex-grow: 1;
+    padding: s(24);
+
+    @include mobile {
+      padding: s(16);
+    }
+  }
+
+  &__meta {
+    color: rgba(0, 0, 0, 0.4);
+    font: 500 s(14)/1.3 var(--font-secondary);
+    text-transform: uppercase;
+  }
+
+  &__name {
+    margin-block: s(16);
+    font: 700 s(20)/1.2 var(--font-main);
+    text-transform: uppercase;
+  }
+
+  &__price {
+    margin-top: auto;
+    color: var(--color-primary);
+    font: 500 s(18)/1.3 var(--font-secondary);
+    text-align: right;
+  }
+}
