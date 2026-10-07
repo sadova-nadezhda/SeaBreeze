@@ -93,6 +93,21 @@
     margin-block: s(32);
   }
 
+  // плашки под текстом (внутренние страницы)
+  &__tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: s(8);
+    margin: s(-16) 0 s(32);
+  }
+
+  &__tag {
+    padding: s(8) s(16);
+    background: rgba(255, 255, 255, 0.15);
+    font-size: s(14);
+    line-height: 1.3;
+  }
+
   &__btn {
     display: flex;
     align-items: center;

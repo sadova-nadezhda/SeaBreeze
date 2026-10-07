@@ -21,6 +21,11 @@
     }
   }
 
+  // SEO-блок: один пункт без заголовка секции
+  &--seo &__list {
+    margin-top: 0;
+  }
+
   &__item {
     background: var(--color-white);
   }

@@ -1,0 +1,81 @@
+@use "../functions" as *;
+
+.bath-space {
+  padding-block: s(64);
+  overflow: hidden;
+  overflow: clip;
+
+  @include mobile {
+    padding-block: s(42);
+  }
+
+  &__title {
+    text-align: center;
+  }
+
+  &__text {
+    max-width: s(420);
+    margin: s(24) auto 0;
+    letter-spacing: -0.04em;
+    text-align: center;
+  }
+
+  &__slider {
+    margin-top: s(42);
+    overflow: visible;
+
+    @include tablet {
+      margin-top: s(32);
+    }
+
+    @include mobile {
+      margin-top: s(24);
+    }
+  }
+
+  &__slide {
+    position: relative;
+    width: s(692);
+    opacity: 0.4;
+    transition: opacity 0.6s;
+
+    &.swiper-slide-active {
+      opacity: 1;
+    }
+
+    @media (min-width: 768px) {
+      &.swiper-slide-next {
+        opacity: 1;
+      }
+    }
+
+    @include tablet {
+      width: s(560);
+    }
+
+    @include mobile {
+      width: s(320);
+    }
+  }
+
+  &__img {
+    width: 100%;
+    height: auto;
+    aspect-ratio: 692 / 456;
+    object-fit: cover;
+
+    @include mobile {
+      aspect-ratio: 320 / 343;
+    }
+  }
+
+  &__caption {
+    position: absolute;
+    right: 0;
+    bottom: 0;
+    max-width: 100%;
+    padding: s(8) s(16);
+    background: var(--color-bg);
+    font-size: s(14);
+  }
+}

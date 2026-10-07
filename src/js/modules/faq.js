@@ -1,13 +1,10 @@
-import { $, $$ } from "./helpers.js";
+import { $$ } from "./helpers.js";
 import { refreshLayout } from "./layout.js";
 
 // ======================
 // FAQ (аккордеон)
 // ======================
-export const initFaq = () => {
-  const list = $(".faq__list");
-  if (!list) return;
-
+const initList = (list) => {
   const toggles = $$(".faq__toggle", list);
 
   toggles.forEach((toggle) => {
@@ -21,3 +18,5 @@ export const initFaq = () => {
     if (e.propertyName === "grid-template-rows") refreshLayout();
   });
 };
+
+export const initFaq = () => $$(".faq__list").forEach(initList);

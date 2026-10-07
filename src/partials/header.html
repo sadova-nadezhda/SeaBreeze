@@ -3,7 +3,7 @@
     <nav class="header__nav" aria-label="Основное меню">
       <ul class="header__menu">
         <li class="header__menu-item">
-          <a class="header__menu-link @@if (page === 'banya') {is-active}" href="#">Общественная баня</a>
+          <a class="header__menu-link @@if (page === 'banya') {is-active}" href="bath.html">Общественная баня</a>
         </li>
         <li class="header__menu-item">
           <a class="header__menu-link @@if (page === 'villas') {is-active}" href="#">Банные виллы</a>
@@ -62,7 +62,7 @@
     <nav class="menu__nav" aria-label="Навигация по сайту" data-lenis-prevent>
       <ul class="menu__list">
         <li class="menu__item"><a class="menu__link" href="#">О комплексе</a></li>
-        <li class="menu__item"><a class="menu__link" href="#">Общественная баня</a></li>
+        <li class="menu__item"><a class="menu__link" href="bath.html">Общественная баня</a></li>
         <li class="menu__item">
           <button class="menu__link menu__toggle" type="button" aria-expanded="false" aria-controls="menu-villas">
             Банные виллы
@@ -108,7 +108,7 @@
           </ul>
         </div>
       </div>
-      <button class="menu__book modal-btn" type="button" data-type="feedback">
+      <button class="menu__book" type="button">
         <span class="menu__book-icon">
           @@include('icons/book.html')
         </span>
