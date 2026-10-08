@@ -32,7 +32,7 @@
   &__window {
     position: relative;
     height: 100%;
-    padding: s(75) s(16);
+    padding: s(64) s(16);
     overflow-y: auto;
     scrollbar-width: none;
 
@@ -54,18 +54,18 @@
     margin-inline: auto;
   }
 
-  // «окно» в карточке: фона нет, только белая рамка — сквозь него виден градиент секции
   &__head {
     display: flex;
     align-items: center;
     justify-content: center;
     aspect-ratio: 537 / 393;
-    padding: s(16);
+    padding: s(48);
     border: s(24) solid var(--color-white);
     color: var(--color-white);
     text-align: center;
 
     @include mobile {
+      padding: s(24);
       border-width: s(16);
     }
   }
@@ -86,8 +86,8 @@
     display: flex;
     flex-direction: column;
     align-items: center;
-    gap: s(6);
-    padding: s(14) s(16);
+    gap: s(16);
+    padding: s(12);
     background: var(--color-gray);
     text-align: center;
   }
@@ -99,6 +99,6 @@
   }
 
   &__time {
-    font: 700 s(22)/1 var(--font-main);
+    font: 700 s(20)/1 var(--font-main);
   }
 }
