@@ -1,0 +1,174 @@
+<section class="book-form" data-gender="male">
+  <div class="book-form__container container">
+    <h1 class="book-form__title text-up reveal-blur">Онлайн бронирование</h1>
+
+    <form class="book-form__grid" action="#" method="post">
+      <input type="hidden" name="date" value="2026-09-22">
+      <input type="hidden" name="time" value="10:00">
+
+      <div class="book-form__main">
+        <div class="book-form__panel">
+          <h2 class="book-form__heading">День посещения</h2>
+
+          <div class="book-form__picker book-form__picker--days">
+            <button class="book-form__arrow book-form__arrow--prev" type="button" aria-label="Предыдущие дни">
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M10.8 12L15.4 16.6L14 18L8 12L14 6L15.4 7.4L10.8 12Z" fill="#1D1B20"/>
+              </svg>
+            </button>
+
+            <div class="book-form__slider swiper">
+              <div class="swiper-wrapper">
+                @@include('sections/book-day.html', { "state": "is-active", "month": "Сентябрь", "dow": "Вт", "day": "22", "date": "2026-09-22", "label": "22 сентября, вторник", "short": "22 сентября, вт", "gender": "male" })
+                @@include('sections/book-day.html', { "state": "", "month": "", "dow": "Ср", "day": "23", "date": "2026-09-23", "label": "23 сентября, среда", "short": "23 сентября, ср", "gender": "female" })
+                @@include('sections/book-day.html', { "state": "", "month": "", "dow": "Чт", "day": "24", "date": "2026-09-24", "label": "24 сентября, четверг", "short": "24 сентября, чт", "gender": "male" })
+                @@include('sections/book-day.html', { "state": "", "month": "", "dow": "Пт", "day": "25", "date": "2026-09-25", "label": "25 сентября, пятница", "short": "25 сентября, пт", "gender": "female" })
+                @@include('sections/book-day.html', { "state": "", "month": "", "dow": "Сб", "day": "26", "date": "2026-09-26", "label": "26 сентября, суббота", "short": "26 сентября, сб", "gender": "male" })
+                @@include('sections/book-day.html', { "state": "", "month": "", "dow": "Вс", "day": "27", "date": "2026-09-27", "label": "27 сентября, воскресенье", "short": "27 сентября, вс", "gender": "female" })
+                @@include('sections/book-day.html', { "state": "", "month": "", "dow": "Пн", "day": "28", "date": "2026-09-28", "label": "28 сентября, понедельник", "short": "28 сентября, пн", "gender": "male" })
+                @@include('sections/book-day.html', { "state": "", "month": "", "dow": "Вт", "day": "29", "date": "2026-09-29", "label": "29 сентября, вторник", "short": "29 сентября, вт", "gender": "female" })
+                @@include('sections/book-day.html', { "state": "", "month": "", "dow": "Ср", "day": "30", "date": "2026-09-30", "label": "30 сентября, среда", "short": "30 сентября, ср", "gender": "male" })
+                @@include('sections/book-day.html', { "state": "", "month": "Октябрь", "dow": "Чт", "day": "1", "date": "2026-10-01", "label": "1 октября, четверг", "short": "1 октября, чт", "gender": "female" })
+                @@include('sections/book-day.html', { "state": "", "month": "", "dow": "Пт", "day": "2", "date": "2026-10-02", "label": "2 октября, пятница", "short": "2 октября, пт", "gender": "male" })
+                @@include('sections/book-day.html', { "state": "", "month": "", "dow": "Сб", "day": "3", "date": "2026-10-03", "label": "3 октября, суббота", "short": "3 октября, сб", "gender": "female" })
+                @@include('sections/book-day.html', { "state": "", "month": "", "dow": "Вс", "day": "4", "date": "2026-10-04", "label": "4 октября, воскресенье", "short": "4 октября, вс", "gender": "male" })
+                @@include('sections/book-day.html', { "state": "", "month": "", "dow": "Пн", "day": "5", "date": "2026-10-05", "label": "5 октября, понедельник", "short": "5 октября, пн", "gender": "female" })
+              </div>
+            </div>
+
+            <button class="book-form__arrow book-form__arrow--next" type="button" aria-label="Следующие дни">
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M13.2 12L8.6 16.6L10 18L16 12L10 6L8.6 7.4L13.2 12Z" fill="#1D1B20"/>
+              </svg>
+            </button>
+          </div>
+
+          <div class="book-form__selected">
+            <p class="book-form__selected-date" data-book="label">22 сентября, вторник</p>
+            <p class="book-form__tag" data-book="gender" data-gender="male" data-male="Мужской день" data-female="Женский день">Мужской день</p>
+          </div>
+        </div>
+
+        <div class="book-form__panel">
+          <h2 class="book-form__heading">Время посещения</h2>
+          <p class="book-form__caption">Время</p>
+
+          <div class="book-form__picker book-form__picker--times">
+            <button class="book-form__arrow book-form__arrow--prev" type="button" aria-label="Предыдущее время">
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M10.8 12L15.4 16.6L14 18L8 12L14 6L15.4 7.4L10.8 12Z" fill="#1D1B20"/>
+              </svg>
+            </button>
+
+            <div class="book-form__slider swiper">
+              <div class="swiper-wrapper">
+                <div class="book-form__slide book-form__slide--time swiper-slide"><button class="book-form__time is-active" type="button">10:00</button></div>
+                <div class="book-form__slide book-form__slide--time swiper-slide"><button class="book-form__time" type="button">11:00</button></div>
+                <div class="book-form__slide book-form__slide--time swiper-slide"><button class="book-form__time" type="button">12:00</button></div>
+                <div class="book-form__slide book-form__slide--time swiper-slide"><button class="book-form__time" type="button">13:00</button></div>
+                <div class="book-form__slide book-form__slide--time swiper-slide"><button class="book-form__time" type="button">14:00</button></div>
+                <div class="book-form__slide book-form__slide--time swiper-slide"><button class="book-form__time" type="button">15:00</button></div>
+                <div class="book-form__slide book-form__slide--time swiper-slide"><button class="book-form__time" type="button">16:00</button></div>
+                <div class="book-form__slide book-form__slide--time swiper-slide"><button class="book-form__time" type="button">17:00</button></div>
+                <div class="book-form__slide book-form__slide--time swiper-slide"><button class="book-form__time" type="button">18:00</button></div>
+                <div class="book-form__slide book-form__slide--time swiper-slide"><button class="book-form__time" type="button">19:00</button></div>
+                <div class="book-form__slide book-form__slide--time swiper-slide"><button class="book-form__time" type="button">20:00</button></div>
+                <div class="book-form__slide book-form__slide--time swiper-slide"><button class="book-form__time" type="button">21:00</button></div>
+                <div class="book-form__slide book-form__slide--time swiper-slide"><button class="book-form__time" type="button">22:00</button></div>
+              </div>
+            </div>
+
+            <button class="book-form__arrow book-form__arrow--next" type="button" aria-label="Следующее время">
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M13.2 12L8.6 16.6L10 18L16 12L10 6L8.6 7.4L13.2 12Z" fill="#1D1B20"/>
+              </svg>
+            </button>
+          </div>
+        </div>
+
+        <!-- data-price — цена за билет, data-min / data-max — границы счётчика -->
+        <div class="book-form__ticket" data-ticket="adult" data-price="4900" data-min="0" data-max="20">
+          <div class="book-form__ticket-info">
+            <h2 class="book-form__heading">Взрослый билет</h2>
+            <p class="book-form__ticket-text">Для гостей от 14 лет</p>
+          </div>
+          <div class="book-form__counter">
+            <button class="book-form__counter-btn" type="button" data-step="-1" aria-label="Уменьшить количество">
+              <svg width="19" height="19" viewBox="0 0 19 19" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M8.46741 10.0052H3.84961V8.46594H8.46741H10.0067H14.6245V10.0052H10.0067H8.46741Z" fill="#1D1B20"/>
+              </svg>
+            </button>
+            <input class="book-form__counter-input" type="text" name="adult" value="1" inputmode="numeric" readonly aria-label="Количество взрослых билетов">
+            <button class="book-form__counter-btn" type="button" data-step="1" aria-label="Увеличить количество">
+              <svg width="19" height="19" viewBox="0 0 19 19" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M8.46546 10.0052H3.84766V8.46598H8.46546V3.84818H10.0047V8.46598H14.6225V10.0052H10.0047V14.623H8.46546V10.0052Z" fill="#1D1B20"/>
+              </svg>
+            </button>
+          </div>
+          <p class="book-form__ticket-sum"><span data-book="sum">4 900</span> ₼</p>
+        </div>
+
+        <div class="book-form__ticket" data-ticket="child" data-price="2450" data-min="0" data-max="20">
+          <div class="book-form__ticket-info">
+            <h2 class="book-form__heading">Детский билет</h2>
+            <p class="book-form__ticket-text">Для гостей от 3 до 13 лет</p>
+          </div>
+          <div class="book-form__counter">
+            <button class="book-form__counter-btn" type="button" data-step="-1" aria-label="Уменьшить количество">
+              <svg width="19" height="19" viewBox="0 0 19 19" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M8.46741 10.0052H3.84961V8.46594H8.46741H10.0067H14.6245V10.0052H10.0067H8.46741Z" fill="#1D1B20"/>
+              </svg>
+            </button>
+            <input class="book-form__counter-input" type="text" name="child" value="0" inputmode="numeric" readonly aria-label="Количество детских билетов">
+            <button class="book-form__counter-btn" type="button" data-step="1" aria-label="Увеличить количество">
+              <svg width="19" height="19" viewBox="0 0 19 19" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M8.46546 10.0052H3.84766V8.46598H8.46546V3.84818H10.0047V8.46598H14.6225V10.0052H10.0047V14.623H8.46546V10.0052Z" fill="#1D1B20"/>
+              </svg>
+            </button>
+          </div>
+          <p class="book-form__ticket-sum"><span data-book="sum">0</span> ₼</p>
+        </div>
+      </div>
+
+      <div class="book-form__order">
+        <div class="book-form__order-top">
+          <h2 class="book-form__heading">Ваш заказ</h2>
+
+          <div class="book-form__order-card">
+            <img class="book-form__order-img" src="img/book-img-1.png" width="1672" height="941" alt="">
+            <div class="book-form__order-info">
+              <p class="book-form__order-name">Общий зал</p>
+              <p class="book-form__order-meta" data-book="short">22 сентября, вт</p>
+              <p class="book-form__order-meta" data-book="time">10:00</p>
+              <p class="book-form__order-meta" data-book="gender" data-male="Мужской день" data-female="Женский день">Мужской день</p>
+            </div>
+          </div>
+        </div>
+
+        <!-- Строки заказа: показываются, когда количество билетов больше нуля -->
+        <div class="book-form__line" data-line="adult">
+          <p class="book-form__line-name">Взрослый билет <span data-book="qty" hidden></span></p>
+          <p class="book-form__line-sum"><span data-book="sum">4 900</span> ₼</p>
+        </div>
+        <div class="book-form__line" data-line="child" hidden>
+          <p class="book-form__line-name">Детский билет <span data-book="qty" hidden></span></p>
+          <p class="book-form__line-sum"><span data-book="sum">0</span> ₼</p>
+        </div>
+
+        <div class="book-form__total">
+          <div class="book-form__total-row">
+            <p class="book-form__total-name">Итого</p>
+            <p class="book-form__total-sum"><span data-book="total">4 900</span> ₼</p>
+          </div>
+
+          <button class="book-form__pay" type="submit">
+            <span class="book-form__pay-icon">
+              @@include('icons/book.html')
+            </span>
+            Перейти к оплате
+          </button>
+        </div>
+      </div>
+    </form>
+  </div>
+</section>

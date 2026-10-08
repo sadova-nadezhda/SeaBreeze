@@ -1,0 +1,103 @@
+@use "../functions" as *;
+
+.book-type {
+  padding-block: s(64);
+
+  @include mobile {
+    padding-block: s(42);
+  }
+
+  &__title {
+    font-size: s(32);
+    line-height: 1.2;
+
+    @include tablet {
+      font-size: s(28);
+    }
+
+    @include mobile {
+      font-size: s(24);
+    }
+  }
+
+  &__list {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: s(8);
+    margin-top: s(42);
+
+    @include tablet {
+      margin-top: s(32);
+    }
+
+    @include mobile {
+      grid-template-columns: 1fr;
+      margin-top: s(24);
+    }
+  }
+
+  &__card {
+    position: relative;
+    display: block;
+    height: s(240);
+    overflow: hidden;
+
+    @include tablet {
+      height: s(180);
+    }
+
+    @include mobile {
+      height: s(200);
+    }
+  }
+
+  &__img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.8s ease;
+  }
+
+  &__label {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    display: flex;
+    align-items: center;
+    height: s(30);
+    padding: s(8) s(12);
+    background: var(--color-bg);
+    font: 400 s(14)/1 var(--font-secondary);
+    transition: background-color 0.3s ease-out, color 0.3s ease-out;
+  }
+
+  &__card:hover &__img {
+    transform: scale(1.04);
+  }
+
+  &__card:hover &__label {
+    color: var(--color-white);
+    background: var(--color-primary);
+  }
+
+  &__notice {
+    display: flex;
+    align-items: center;
+    gap: s(8);
+    min-height: s(48);
+    margin-top: s(8);
+    padding: s(12);
+    background: rgba(193, 147, 99, 0.1);
+  }
+
+  &__notice-icon {
+    flex-shrink: 0;
+    width: s(24);
+    height: s(24);
+    color: var(--color-primary);
+  }
+
+  &__notice-text {
+    font: 400 s(14)/1.4 var(--font-secondary);
+  }
+}

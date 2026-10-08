@@ -1,0 +1,584 @@
+@use "../functions" as *;
+
+.book-form {
+  padding-block: s(64);
+
+  @include mobile {
+    padding-block: s(42);
+  }
+
+  &__title {
+    font-size: s(32);
+    line-height: 1.2;
+
+    @include tablet {
+      font-size: s(28);
+    }
+
+    @include mobile {
+      font-size: s(24);
+    }
+  }
+
+  &__grid {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) s(459);
+    align-items: start;
+    gap: s(8);
+    margin-top: s(42);
+
+    @include tablet {
+      grid-template-columns: minmax(0, 1fr);
+      margin-top: s(32);
+    }
+
+    @include mobile {
+      margin-top: s(24);
+    }
+  }
+
+  &__main {
+    display: flex;
+    flex-direction: column;
+    gap: s(8);
+  }
+
+  &__panel {
+    padding: s(24);
+    background: var(--color-white);
+
+    @include mobile {
+      padding: s(16);
+    }
+  }
+
+  &__heading {
+    font: 500 s(20)/1.2 var(--font-secondary);
+  }
+
+  &__caption {
+    margin-top: s(24);
+    color: rgba(0, 0, 0, 0.4);
+    font-size: s(14);
+    line-height: 1.4;
+  }
+
+  // Кабинеты
+  &__rooms {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: s(8);
+    margin-top: s(24);
+
+    @include mobile {
+      grid-template-columns: minmax(0, 1fr);
+    }
+  }
+
+  &__room {
+    display: flex;
+    flex-direction: column;
+    background: var(--color-bg);
+    cursor: pointer;
+  }
+
+  &__room-img {
+    width: 100%;
+    height: s(140);
+    object-fit: cover;
+  }
+
+  &__room-body {
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: s(16);
+    padding: s(16) s(24) s(16) s(12);
+
+    @include mobile {
+      padding-right: s(16);
+    }
+  }
+
+  &__room-info {
+    display: flex;
+    flex-direction: column;
+    gap: s(8);
+    min-width: 0;
+    font-size: s(16);
+    line-height: 1.2;
+    letter-spacing: -0.04em;
+  }
+
+  &__room-guests {
+    color: rgba(0, 0, 0, 0.5);
+    font: 500 s(12)/1.2 var(--font-secondary);
+    letter-spacing: 0;
+    text-transform: uppercase;
+  }
+
+  &__room-input {
+    position: absolute;
+    opacity: 0;
+    pointer-events: none;
+  }
+
+  &__room-check {
+    position: relative;
+    flex-shrink: 0;
+    width: s(20);
+    height: s(20);
+    border: s(2) solid rgba(0, 0, 0, 0.5);
+    border-radius: 50%;
+    transition: border-color 0.3s ease-out;
+
+    &::after {
+      content: "";
+      position: absolute;
+      inset: s(3);
+      border-radius: 50%;
+      background: var(--color-blue);
+      transform: scale(0);
+      transition: transform 0.3s ease-out;
+    }
+  }
+
+  &__room:hover &__room-check,
+  &__room-input:checked + &__room-check {
+    border-color: var(--color-blue);
+  }
+
+  &__room-input:checked + &__room-check::after {
+    transform: scale(1);
+  }
+
+  &__room-input:focus-visible + &__room-check {
+    outline: s(2) solid var(--color-blue);
+    outline-offset: s(2);
+  }
+
+  // Слайдеры дней и времени
+  &__picker {
+    display: flex;
+    align-items: flex-end;
+    gap: s(8);
+    margin-top: s(8);
+
+    &--days,
+    .book-form__heading + & {
+      margin-top: s(24);
+    }
+  }
+
+  &__slider {
+    flex: 1;
+    min-width: 0;
+  }
+
+  // место под название месяца над первым днём
+  &__picker--days &__slider {
+    padding-top: s(28);
+  }
+
+  &__slide {
+    position: relative;
+
+    &--day {
+      width: calc((100% - #{s(8)} * 9) / 10);
+
+      @include tablet {
+        width: calc((100% - #{s(8)} * 7) / 8);
+      }
+
+      @include mobile {
+        width: calc((100% - #{s(8)} * 4) / 5);
+      }
+    }
+
+    &--time {
+      width: calc((100% - #{s(8)} * 8) / 9);
+
+      @include tablet {
+        width: calc((100% - #{s(8)} * 6) / 7);
+      }
+
+      @include mobile {
+        width: calc((100% - #{s(8)} * 3) / 4);
+      }
+    }
+  }
+
+  &__month {
+    position: absolute;
+    bottom: calc(100% + #{s(8)});
+    left: 0;
+    color: rgba(0, 0, 0, 0.4);
+    font-size: s(14);
+    line-height: s(18);
+    white-space: nowrap;
+  }
+
+  &__arrow,
+  &__day,
+  &__time {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: var(--color-bg);
+    transition: background-color 0.3s ease-out, color 0.3s ease-out, opacity 0.3s;
+  }
+
+  &__arrow {
+    flex-shrink: 0;
+    width: s(42);
+    height: s(56);
+
+    svg {
+      width: s(24);
+      height: s(24);
+    }
+
+    &:hover {
+      background: var(--color-gray);
+    }
+
+    &.swiper-button-disabled {
+      opacity: 0.4;
+      cursor: default;
+    }
+
+    @include mobile {
+      display: none;
+    }
+  }
+
+  &__picker--times &__arrow {
+    width: s(73);
+    height: s(44);
+
+    @include tablet {
+      width: s(42);
+    }
+  }
+
+  // слайдер вилл: стрелки на всю высоту карточек
+  &__picker--rooms {
+    align-items: stretch;
+  }
+
+  &__picker--rooms &__arrow {
+    height: auto;
+  }
+
+  &__slide--room {
+    display: flex;
+    width: calc((100% - #{s(8)} * 2) / 3);
+    height: auto;
+
+    @include tablet {
+      width: calc((100% - #{s(8)}) / 2);
+    }
+
+    @include mobile {
+      width: 80%;
+    }
+  }
+
+  &__slide--room &__room {
+    width: 100%;
+  }
+
+  &__day {
+    flex-direction: column;
+    gap: s(4);
+    width: 100%;
+    height: s(60);
+  }
+
+  &__day-week {
+    color: rgba(0, 0, 0, 0.5);
+    font: 500 s(12)/1 var(--font-secondary);
+    text-transform: uppercase;
+    transition: color 0.3s ease-out;
+  }
+
+  &__day-num,
+  &__time {
+    font: 700 s(16)/1.2 var(--font-main);
+  }
+
+  &__time {
+    width: 100%;
+    height: s(44);
+  }
+
+  &__day:hover,
+  &__time:hover {
+    background: var(--color-gray);
+  }
+
+  &__day.is-active,
+  &__time.is-active {
+    color: var(--color-white);
+    background: var(--color-blue);
+  }
+
+  // женский день: выбранные день и время розовые
+  &__day.is-active[data-gender="female"],
+  &[data-gender="female"] &__time.is-active {
+    background: var(--color-pink);
+  }
+
+  &__day.is-active &__day-week {
+    color: rgba(255, 255, 255, 0.6);
+  }
+
+  &__selected {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: s(8);
+    margin-top: s(24);
+  }
+
+  &__selected-date {
+    letter-spacing: -0.04em;
+  }
+
+  &__tag {
+    display: flex;
+    align-items: center;
+    height: s(24);
+    padding: s(8);
+    color: var(--color-blue);
+    background: rgba(69, 78, 255, 0.05);
+    font: 500 s(12)/1.2 var(--font-secondary);
+    text-transform: uppercase;
+
+    &[data-gender="female"] {
+      color: var(--color-pink);
+      background: rgba(200, 25, 216, 0.05);
+    }
+  }
+
+  // Билеты
+  &__ticket {
+    display: flex;
+    align-items: center;
+    gap: s(24);
+    min-height: s(72);
+    padding: s(16);
+    background: var(--color-white);
+
+    @include mobile {
+      flex-wrap: wrap;
+      gap: s(16);
+    }
+  }
+
+  &__ticket-info {
+    flex: 1;
+    min-width: 0;
+
+    @include mobile {
+      flex-basis: 100%;
+    }
+  }
+
+  &__ticket-text {
+    margin-top: s(8);
+    color: rgba(0, 0, 0, 0.5);
+    font-size: s(14);
+    line-height: 1.4;
+  }
+
+  &__counter {
+    display: flex;
+    flex-shrink: 0;
+  }
+
+  &__counter-btn {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: s(30);
+    height: s(30);
+    padding: 0;
+    border: s(1) solid var(--color-gray);
+    background: var(--color-gray);
+    transition: background-color 0.3s ease-out, color 0.3s ease-out, opacity 0.3s;
+
+    svg {
+      width: s(18);
+      height: s(18);
+    }
+
+    &:hover:not(:disabled) {
+      color: var(--color-white);
+      background: var(--color-primary);
+    }
+
+    &:disabled {
+      opacity: 0.4;
+      cursor: default;
+    }
+  }
+
+  &__counter-input {
+    width: s(85);
+    height: s(30);
+    padding: 0;
+    border: s(1) solid var(--color-gray);
+    font-size: s(16);
+    line-height: 1.2;
+    font-weight: 500;
+    text-align: center;
+    cursor: default;
+  }
+
+  &__ticket-sum {
+    flex-shrink: 0;
+    min-width: s(72);
+    font-size: s(16);
+    font-weight: 500;
+    line-height: 1.2;
+    text-align: right;
+    white-space: nowrap;
+
+    @include mobile {
+      margin-left: auto;
+    }
+  }
+
+  // Заказ
+  &__order {
+    position: sticky;
+    top: s(56);
+    background: var(--color-white);
+
+    @include tablet {
+      position: static;
+    }
+  }
+
+  &__order-top,
+  &__line,
+  &__total {
+    padding: s(16);
+  }
+
+  &__line,
+  &__total {
+    border-top: s(1) solid var(--color-bg);
+  }
+
+  &__order-card {
+    display: flex;
+    gap: s(24);
+    margin-top: s(24);
+
+    @include mobile {
+      gap: s(16);
+    }
+  }
+
+  &__order-img {
+    flex-shrink: 0;
+    width: s(220);
+    height: s(120);
+    object-fit: cover;
+
+    @include mobile {
+      width: s(140);
+      height: s(100);
+    }
+  }
+
+  &__order-info {
+    display: flex;
+    flex-direction: column;
+    gap: s(8);
+    font-size: s(14);
+    line-height: 1.4;
+  }
+
+  &__order-name {
+    font-size: s(16);
+    letter-spacing: -0.04em;
+  }
+
+  &__order-meta {
+    color: rgba(0, 0, 0, 0.5);
+  }
+
+  &__line,
+  &__line-row,
+  &__total-row {
+    display: flex;
+    align-items: baseline;
+    justify-content: space-between;
+    gap: s(16);
+  }
+
+  &__line {
+    padding-block: s(20);
+    font-size: s(16);
+    letter-spacing: -0.04em;
+
+    // аренда кабинета: стоимость и скидка в одном блоке
+    &--rent {
+      flex-direction: column;
+      align-items: stretch;
+      gap: s(12);
+    }
+  }
+
+  &__line-row--discount {
+    color: #e5173f;
+  }
+
+  &__line-sum,
+  &__total-sum {
+    flex-shrink: 0;
+    white-space: nowrap;
+  }
+
+  &__total-row {
+    font: 500 s(20)/1.2 var(--font-secondary);
+  }
+
+  &__pay {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: s(8);
+    width: 100%;
+    height: s(56);
+    margin-top: s(24);
+    padding: s(12);
+    background: var(--color-gray);
+    font: 500 s(14)/1.2 var(--font-secondary);
+    text-transform: uppercase;
+    transition: background-color 0.3s, opacity 0.3s;
+
+    &:hover:not(:disabled) {
+      background: var(--color-bg);
+    }
+
+    &:disabled {
+      opacity: 0.5;
+      cursor: default;
+    }
+  }
+
+  &__pay-icon {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: s(32);
+    height: s(32);
+    color: var(--color-white);
+    background: var(--color-primary);
+  }
+}
