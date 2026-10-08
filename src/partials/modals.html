@@ -1,19 +1,96 @@
 <div class="modals">
-  <div class="modal" data-type="feedback" role="dialog" aria-modal="true" aria-labelledby="modal-feedback-title">
-    <button class="modal__close" type="button" aria-label="Закрыть">×</button>
-    <h2 class="modal__title" id="modal-feedback-title">Оставить заявку</h2>
-    <form class="modal__form form">
-      <input class="modal__input" type="text" name="name" placeholder="Имя" required>
-      <input class="modal__input" type="tel" name="phone" placeholder="+7 (___) ___ ____" required>
-      <input type="hidden" name="topic" data-modal-topic>
-      <button class="modal__btn" type="submit">Отправить</button>
+  <div class="modal" data-type="consult" role="dialog" aria-modal="true" aria-labelledby="modal-consult-title" data-lenis-prevent>
+    <div class="modal__head">
+      <h2 class="modal__title text-up" id="modal-consult-title">Записаться на консультацию</h2>
+      <button class="modal__close" type="button" aria-label="Закрыть">
+        <svg viewBox="0 0 18 18" fill="currentColor" shape-rendering="crispEdges" aria-hidden="true">
+          <path d="M0 0h5v5H0zM13 0h5v5h-5zM7 7h4v4H7zM0 13h5v5H0zM13 13h5v5h-5z"/>
+        </svg>
+      </button>
+    </div>
+    <form class="modal__form">
+      <div class="modal__section modal__fields">
+        <div class="modal__field">
+          <label class="modal__label" for="modal-consult-name">Имя</label>
+          <input class="modal__input" id="modal-consult-name" type="text" name="name" placeholder="Как к вам обращаться" autocomplete="name" required>
+        </div>
+        <div class="modal__field">
+          <label class="modal__label" for="modal-consult-phone">Телефон</label>
+          <input class="modal__input" id="modal-consult-phone" type="tel" name="phone" placeholder="+994 00 000 00 00" data-mask="+994 __ ___ __ __" autocomplete="tel" required>
+        </div>
+        <input type="hidden" name="topic" value="Консультация по СПА-услугам">
+      </div>
+      <div class="modal__section">
+        <label class="modal__agree">
+          <input class="modal__checkbox" type="checkbox" name="agree" required>
+          Согласие с пользовательским соглашением и политикой обработки персональных данных
+        </label>
+      </div>
+      <div class="modal__section">
+        <button class="modal__btn" type="submit">Получить консультацию</button>
+      </div>
+    </form>
+  </div>
+
+  <div class="modal" data-type="loyalty" role="dialog" aria-modal="true" aria-labelledby="modal-loyalty-title" data-lenis-prevent>
+    <div class="modal__head">
+      <h2 class="modal__title text-up" id="modal-loyalty-title">Вступить в программу лояльности</h2>
+      <button class="modal__close" type="button" aria-label="Закрыть">
+        <svg viewBox="0 0 18 18" fill="currentColor" shape-rendering="crispEdges" aria-hidden="true">
+          <path d="M0 0h5v5H0zM13 0h5v5h-5zM7 7h4v4H7zM0 13h5v5H0zM13 13h5v5h-5z"/>
+        </svg>
+      </button>
+    </div>
+    <form class="modal__form">
+      <div class="modal__section modal__fields">
+        <div class="modal__field">
+          <label class="modal__label" for="modal-loyalty-surname">Фамилия</label>
+          <input class="modal__input" id="modal-loyalty-surname" type="text" name="surname" placeholder="Какая у вас фамилия" autocomplete="family-name" required>
+        </div>
+        <div class="modal__field">
+          <label class="modal__label" for="modal-loyalty-name">Имя</label>
+          <input class="modal__input" id="modal-loyalty-name" type="text" name="name" placeholder="Как вас зовут" autocomplete="given-name" required>
+        </div>
+        <div class="modal__field">
+          <label class="modal__label" for="modal-loyalty-phone">Телефон</label>
+          <input class="modal__input" id="modal-loyalty-phone" type="tel" name="phone" placeholder="+994 00 000 00 00" data-mask="+994 __ ___ __ __" autocomplete="tel" required>
+        </div>
+        <div class="modal__field">
+          <label class="modal__label" for="modal-loyalty-email">Email</label>
+          <input class="modal__input" id="modal-loyalty-email" type="email" name="email" placeholder="orlovbanya@company.com" autocomplete="email" required>
+        </div>
+        <div class="modal__field">
+          <label class="modal__label" for="modal-loyalty-birthday">Дата рождения</label>
+          <input class="modal__input" id="modal-loyalty-birthday" type="text" name="birthday" placeholder="01.01.2001" data-mask="__.__.____" pattern="\d{2}\.\d{2}\.\d{4}" inputmode="numeric" autocomplete="bday" required>
+        </div>
+        <input type="hidden" name="topic" value="Вступление в программу лояльности">
+      </div>
+      <div class="modal__section">
+        <label class="modal__agree">
+          <input class="modal__checkbox" type="checkbox" name="agree" required>
+          Согласие с пользовательским соглашением и политикой обработки персональных данных
+        </label>
+      </div>
+      <div class="modal__section">
+        <button class="modal__btn" type="submit">Зарегистрироваться</button>
+      </div>
     </form>
   </div>
 
   <div class="modal" data-type="success" role="dialog" aria-modal="true" aria-labelledby="modal-success-title">
-    <button class="modal__close" type="button" aria-label="Закрыть">×</button>
-    <h2 class="modal__title" id="modal-success-title">Заявка отправлена</h2>
-    <p class="modal__text">Мы свяжемся с вами в ближайшее время.</p>
-    <button class="modal__btn" type="button" data-modal-close>Хорошо</button>
+    <div class="modal__head">
+      <h2 class="modal__title text-up" id="modal-success-title">Заявка отправлена</h2>
+      <button class="modal__close" type="button" aria-label="Закрыть">
+        <svg viewBox="0 0 18 18" fill="currentColor" shape-rendering="crispEdges" aria-hidden="true">
+          <path d="M0 0h5v5H0zM13 0h5v5h-5zM7 7h4v4H7zM0 13h5v5H0zM13 13h5v5h-5z"/>
+        </svg>
+      </button>
+    </div>
+    <div class="modal__section">
+      <p class="modal__text">Мы свяжемся с вами в ближайшее время.</p>
+    </div>
+    <div class="modal__section">
+      <button class="modal__btn" type="button" data-modal-close>Хорошо</button>
+    </div>
   </div>
 </div>

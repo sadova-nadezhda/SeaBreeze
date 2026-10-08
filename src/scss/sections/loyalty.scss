@@ -1,8 +1,7 @@
 @use "../functions" as *;
 
-.spa {
+.loyalty {
   padding-block: s(24);
-  background-color: var(--color-white);
 
   @include mobile {
     padding-block: s(16);
@@ -19,32 +18,36 @@
     overflow: hidden;
     isolation: isolate;
     color: var(--color-white);
-    background:
-      radial-gradient(circle at 88% 20%, #143F58 0%, rgba(20, 63, 88, 0) 48%),
-      linear-gradient(100deg, #7FDADA 0%, #4E97A3 50%, #2F6B7D 100%);
+    background: var(--color-dark);
     text-align: center;
+
+    // затемнение поверх фоновой картинки
+    &::after {
+      content: "";
+      position: absolute;
+      inset: 0;
+      z-index: -1;
+      background: linear-gradient(180deg, rgba(0, 0, 0, 0) 29.57%, rgba(0, 0, 0, 0.5) 100%);
+      pointer-events: none;
+    }
 
     @include tablet {
       min-height: s(640);
     }
 
     @include mobile {
-      min-height: s(740);
-      padding-inline: s(8);
-      background:
-        radial-gradient(circle at 0 0, #0F4A63 0%, rgba(15, 74, 99, 0) 35%),
-        radial-gradient(circle at 100% 55%, #2F6B7D 0%, rgba(47, 107, 125, 0) 60%),
-        linear-gradient(160deg, #86DADA 0%, #6DBFC5 45%, #5AA9B1 100%);
+      min-height: s(600);
+      padding-inline: s(16);
     }
   }
 
-  &__waves {
+  &__bg {
     position: absolute;
     inset: 0;
     z-index: -1;
     width: 100%;
     height: 100%;
-    pointer-events: none;
+    object-fit: cover;
   }
 
   &__content {
@@ -53,43 +56,22 @@
     align-items: center;
   }
 
-  &__icon {
-    width: s(40);
-    height: s(30);
-  }
-
-  &__title {
-    max-width: s(740);
+  &__text {
+    max-width: s(520);
     margin-block: s(42);
+    font-weight: 300;
+    letter-spacing: -0.04em;
 
     @include mobile {
       margin-block: s(32);
     }
   }
 
-  &__text {
-    margin-bottom: s(42);
-    font-weight: 300;
-    letter-spacing: -0.04em;
-
-    @include mobile {
-      margin-bottom: s(32);
-    }
-  }
-
-  // Страницы 404 и благодарности
-  &--error &__title,
-  &--thanks &__title {
-    max-width: s(800);
-    margin-top: 0;
-  }
-
-  &--thanks &__title {
-    max-width: s(860);
-  }
-
-  &--thanks &__text {
-    max-width: s(640);
+  &__actions {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: s(8);
   }
 
   &__btn {
@@ -101,10 +83,19 @@
     background: var(--color-gray);
     font: 500 s(14)/1.2 var(--font-secondary);
     text-transform: uppercase;
-    transition: background-color 0.3s;
+    transition: color 0.3s, background-color 0.3s;
 
     &:hover {
       background: var(--color-white);
+    }
+
+    &--ghost {
+      color: var(--color-white);
+      background: rgba(255, 255, 255, 0.15);
+
+      &:hover {
+        color: var(--color-text);
+      }
     }
   }
 }

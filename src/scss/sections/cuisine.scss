@@ -7,7 +7,6 @@
     padding-block: s(42);
   }
 
-  // якоря категорий: при скролле закрепляются под шапкой
   &__tabs {
     position: sticky;
     top: s(48);
@@ -15,13 +14,13 @@
     display: flex;
     flex-wrap: wrap;
     gap: s(8);
-    margin-top: s(30);
-    padding-block: s(12);
+    margin-top: s(42);
+    padding-block: s(8);
     background: var(--color-bg);
 
     @include tablet {
       flex-wrap: nowrap;
-      margin-top: s(20);
+      margin-top: s(24);
       margin-inline: s(-24);
       padding-inline: s(24);
       overflow-x: auto;
@@ -78,8 +77,13 @@
     }
   }
 
-  // первая группа стоит ближе к якорям
-  &__tabs + &__group {
+  // Страница СПА: обёртка табов-переключателей, в ряду стоят сами табы
+  &__switch {
+    display: contents;
+  }
+
+  &__tabs + &__group,
+  &__panel > &__group:first-child {
     margin-top: s(42);
 
     @include mobile {

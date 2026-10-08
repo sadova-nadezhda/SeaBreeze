@@ -20,6 +20,20 @@ const playIntro = (hero) => {
   hero.classList.add("is-ready");
 };
 
+// Видео играет только в активном слайде
+const syncVideos = (swiper) => {
+  swiper.slides.forEach((slide, i) => {
+    const video = $(".hero__video", slide);
+    if (!video) return;
+    if (i === swiper.activeIndex) {
+      video.currentTime = 0;
+      video.play().catch(() => {});
+    } else {
+      video.pause();
+    }
+  });
+};
+
 export const initHero = () => {
   const hero = $(".hero");
   if (!hero) return;
@@ -29,6 +43,7 @@ export const initHero = () => {
   const slider = $(".hero__slider", hero);
   if (slider && $$(".hero__slide", slider).length > 1 && typeof Swiper !== "undefined") {
     new Swiper(slider, {
+      on: { init: syncVideos, slideChange: syncVideos },
       effect: "fade",
       fadeEffect: { crossFade: true },
       loop: true,

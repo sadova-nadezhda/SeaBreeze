@@ -4,7 +4,8 @@ import { $$ } from "./helpers.js";
 // Phone mask
 // ======================
 export const initPhoneMask = () => {
-  const inputs = $$('input[type="tel"]');
+  // телефоны + любые поля с data-mask (например, дата "__.__.____")
+  const inputs = $$('input[type="tel"], input[data-mask]');
   if (!inputs.length) return;
 
   const format = (value, matrix) => {

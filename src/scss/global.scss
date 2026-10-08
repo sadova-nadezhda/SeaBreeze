@@ -60,7 +60,6 @@ body {
   overflow-x: hidden;
   overflow-x: clip;
 
-  // блокировка скролла
   &.no-scroll {
     overflow: hidden;
     padding-right: var(--scrollbar-width);

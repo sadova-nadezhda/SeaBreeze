@@ -1,0 +1,91 @@
+@use "../functions" as *;
+
+.steps {
+  padding-block: s(64);
+
+  @include mobile {
+    padding-block: s(42);
+  }
+
+  &__list {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: s(8);
+    margin-top: s(42);
+
+    @include tablet {
+      grid-template-columns: repeat(2, 1fr);
+    }
+
+    @include mobile {
+      grid-template-columns: 1fr;
+      margin-top: s(24);
+    }
+  }
+
+  &__card {
+    display: flex;
+    flex-direction: column;
+    background: var(--color-white);
+  }
+
+  &__img {
+    width: 100%;
+    height: auto;
+    aspect-ratio: 342 / 360;
+    object-fit: cover;
+
+    @include mobile {
+      aspect-ratio: 361 / 260;
+    }
+  }
+
+  &__body {
+    display: flex;
+    flex-direction: column;
+    flex-grow: 1;
+    align-items: flex-start;
+    min-height: s(180);
+    padding: s(24);
+
+    @include mobile {
+      min-height: 0;
+      padding: s(16);
+    }
+  }
+
+  &__name {
+    font: 700 s(20)/1.2 var(--font-main);
+    text-transform: uppercase;
+  }
+
+  &__text,
+  &__btn {
+    font: 500 s(14)/1.3 var(--font-secondary);
+    text-transform: uppercase;
+  }
+
+  &__text {
+    margin-top: s(16);
+    color: rgba(0, 0, 0, 0.4);
+  }
+
+  &__btn {
+    display: flex;
+    align-items: center;
+    height: s(40);
+    margin-top: auto;
+    padding: s(12);
+    background: var(--color-bg);
+    transition: background-color 0.3s ease-out, color 0.3s ease-out;
+
+    &:hover {
+      color: var(--color-white);
+      background: var(--color-primary);
+    }
+  }
+
+  &__text + &__btn {
+    margin-top: s(24);
+  }
+}

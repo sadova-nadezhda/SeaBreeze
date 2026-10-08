@@ -1,0 +1,93 @@
+<section class="cuisine cuisine--services" id="services">
+  <div class="cuisine__container container">
+    <h2 class="cuisine__title text-up reveal-blur">Услуги</h2>
+
+    <!-- Первые два таба переключают панели, остальные скроллят к группе (data-group) в открытой панели -->
+    <div class="cuisine__tabs">
+      <div class="cuisine__switch" role="tablist" aria-label="Выбор пространства">
+        <button class="cuisine__tab is-active reveal-blur" type="button" role="tab" id="services-tab-bath" aria-controls="services-bath" aria-selected="true">
+          @@include('icons/book-square.html', { "class": "cuisine__tab-icon" })
+          Общественные бани
+        </button>
+        <button class="cuisine__tab reveal-blur" type="button" role="tab" id="services-tab-villas" aria-controls="services-villas" aria-selected="false">
+          @@include('icons/book-square.html', { "class": "cuisine__tab-icon" })
+          Банные виллы
+        </button>
+      </div>
+      <button class="cuisine__tab reveal-blur" type="button" data-group="wash">
+        @@include('icons/book-square.html', { "class": "cuisine__tab-icon" })
+        Помывки
+      </button>
+      <button class="cuisine__tab reveal-blur" type="button" data-group="massage">
+        @@include('icons/book-square.html', { "class": "cuisine__tab-icon" })
+        Массажи
+      </button>
+      <button class="cuisine__tab reveal-blur" type="button" data-group="programs">
+        @@include('icons/book-square.html', { "class": "cuisine__tab-icon" })
+        Спа-программы массажей
+      </button>
+    </div>
+
+    <div class="cuisine__panel" id="services-bath" role="tabpanel" aria-labelledby="services-tab-bath">
+      <div class="cuisine__group" data-group="wash">
+        <h3 class="cuisine__subtitle text-up reveal-blur">Помывки</h3>
+        <ul class="cuisine__list">
+          @@include('sections/cuisine-item.html', { "name": "Детская помывка", "text": "Время: 12 мин", "price": "1000" })
+          @@include('sections/cuisine-item.html', { "name": "Классическая помывка дегтярным мылом и березой", "text": "Время: 12 мин", "price": "1000" })
+          @@include('sections/cuisine-item.html', { "name": "Сухой пилинг рукавицей кесе", "text": "Время: 12 мин", "price": "1000" })
+          @@include('sections/cuisine-item.html', { "name": "Помывка мыльным мешком", "text": "Время: 12 мин", "price": "1000" })
+          @@include('sections/cuisine-item.html', { "name": "Помывка «Мыльный комплекс»", "text": "Время: 12 мин", "price": "1000" })
+        </ul>
+      </div>
+
+      <div class="cuisine__group" data-group="massage">
+        <h3 class="cuisine__subtitle text-up reveal-blur">Массажи</h3>
+        <ul class="cuisine__list">
+          @@include('sections/cuisine-item.html', { "name": "Массаж ног", "text": "Время: 12 мин", "price": "1000" })
+          @@include('sections/cuisine-item.html', { "name": "Классический массаж", "text": "Время: 12 мин", "price": "1000" })
+          @@include('sections/cuisine-item.html', { "name": "Массаж стоп", "text": "Время: 12 мин", "price": "1000" })
+          @@include('sections/cuisine-item.html', { "name": "Массаж головы", "text": "Время: 12 мин", "price": "1000" })
+          @@include('sections/cuisine-item.html', { "name": "Массаж спины", "text": "Время: 12 мин", "price": "1000" })
+          @@include('sections/cuisine-item.html', { "name": "Спортивный массаж", "text": "Время: 12 мин", "price": "1000" })
+        </ul>
+      </div>
+
+      <div class="cuisine__group" data-group="programs">
+        <h3 class="cuisine__subtitle text-up reveal-blur">СПА-программы массажей</h3>
+        <ul class="cuisine__list">
+          @@include('sections/cuisine-item.html', { "name": "Совершенное восстановление", "text": "Время: 12 мин", "price": "1000" })
+          @@include('sections/cuisine-item.html', { "name": "Магниевый комплекс", "text": "Время: 12 мин", "price": "1000" })
+        </ul>
+      </div>
+    </div>
+
+    <div class="cuisine__panel" id="services-villas" role="tabpanel" aria-labelledby="services-tab-villas" hidden>
+      <div class="cuisine__group" data-group="wash">
+        <h3 class="cuisine__subtitle text-up">Помывки</h3>
+        <ul class="cuisine__list">
+          @@include('sections/cuisine-item.html', { "name": "Классическая помывка дегтярным мылом и березой", "text": "Время: 12 мин", "price": "1000" })
+          @@include('sections/cuisine-item.html', { "name": "Помывка мыльным мешком", "text": "Время: 12 мин", "price": "1000" })
+          @@include('sections/cuisine-item.html', { "name": "Помывка «Мыльный комплекс»", "text": "Время: 12 мин", "price": "1000" })
+        </ul>
+      </div>
+
+      <div class="cuisine__group" data-group="massage">
+        <h3 class="cuisine__subtitle text-up">Массажи</h3>
+        <ul class="cuisine__list">
+          @@include('sections/cuisine-item.html', { "name": "Классический массаж", "text": "Время: 12 мин", "price": "1000" })
+          @@include('sections/cuisine-item.html', { "name": "Массаж головы", "text": "Время: 12 мин", "price": "1000" })
+          @@include('sections/cuisine-item.html', { "name": "Массаж спины", "text": "Время: 12 мин", "price": "1000" })
+          @@include('sections/cuisine-item.html', { "name": "Спортивный массаж", "text": "Время: 12 мин", "price": "1000" })
+        </ul>
+      </div>
+
+      <div class="cuisine__group" data-group="programs">
+        <h3 class="cuisine__subtitle text-up">СПА-программы массажей</h3>
+        <ul class="cuisine__list">
+          @@include('sections/cuisine-item.html', { "name": "Совершенное восстановление", "text": "Время: 12 мин", "price": "1000" })
+          @@include('sections/cuisine-item.html', { "name": "Магниевый комплекс", "text": "Время: 12 мин", "price": "1000" })
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>

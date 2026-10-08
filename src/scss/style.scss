@@ -20,6 +20,7 @@
 @use "sections/banya";
 @use "sections/spa";
 @use "sections/news";
+@use "sections/post";
 @use "sections/dishes";
 @use "sections/reviews";
 @use "sections/contacts";
@@ -33,3 +34,5 @@
 @use "sections/catalog";
 @use "sections/schedule";
 @use "sections/booking";
+@use "sections/loyalty";
+@use "sections/steps";

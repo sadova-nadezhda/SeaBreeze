@@ -117,6 +117,15 @@ export const initModals = ({ scrollLock, closeMobileMenu } = {}) => {
     });
   });
 
+  // TODO: отправка на сервер — пока форма только показывает окно «Заявка отправлена»
+  $$(".modal__form", wrapper).forEach((form) => {
+    form.addEventListener("submit", (e) => {
+      e.preventDefault();
+      form.reset();
+      openModal("success");
+    });
+  });
+
   wrapper.addEventListener("click", (e) => {
     if (
       e.target === wrapper ||

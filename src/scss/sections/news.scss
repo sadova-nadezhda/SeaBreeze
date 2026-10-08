@@ -32,6 +32,40 @@
     }
   }
 
+  &__list {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: s(8);
+    margin-top: s(42);
+
+    @include tablet {
+      grid-template-columns: repeat(2, 1fr);
+      margin-top: s(32);
+    }
+
+    @include mobile {
+      grid-template-columns: 1fr;
+      margin-top: s(24);
+    }
+  }
+
+  &--list &__title {
+    font-size: s(32);
+
+    @include tablet {
+      font-size: s(28);
+    }
+
+    @include mobile {
+      font-size: s(24);
+    }
+  }
+
+  &--list &__card {
+    width: auto;
+    opacity: 1;
+  }
+
   &__card {
     position: relative;
     display: flex;
