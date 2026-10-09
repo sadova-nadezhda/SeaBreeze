@@ -94,11 +94,7 @@
     align-items: center;
     justify-content: space-between;
     gap: s(16);
-    padding: s(16) s(24) s(16) s(12);
-
-    @include mobile {
-      padding-right: s(16);
-    }
+    padding: s(12);
   }
 
   &__room-info {
