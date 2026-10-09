@@ -34,7 +34,9 @@ const reveal = (type) => {
   ScrollTrigger.batch(items, {
     start: "top 90%",
     once: true,
-    onEnter: (batch) => gsap.to(batch, { ...to, stagger: Math.min(stagger, 0.8 / batch.length) }),
+    // fromTo, а не to: браузер сокращает inset(50% 0% 50% 0%) до inset(50% 0%),
+    // и gsap, читая старт из стилей, анимирует только верхний край
+    onEnter: (batch) => gsap.fromTo(batch, from, { ...to, stagger: Math.min(stagger, 0.8 / batch.length) }),
   });
 };
 
