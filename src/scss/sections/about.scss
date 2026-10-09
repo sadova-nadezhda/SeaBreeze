@@ -34,6 +34,9 @@
 
   &__title {
     grid-area: title;
+    @include mobile {
+      font-size: s(20);
+    }
   }
 
   &__text {

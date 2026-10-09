@@ -87,6 +87,7 @@ export const initBookForm = () => {
   const pay = $(".book-form__pay", form);
   const depositRow = $("[data-deposit]", form);
   const discountRow = $("[data-discount]", form);
+  const getQty = (name) => Number($(`[data-ticket="${name}"] .book-form__counter-input`, form)?.value) || 0;
   const update = () => {
     let total = 0;
 
@@ -115,12 +116,15 @@ export const initBookForm = () => {
       const input = $(".book-form__counter-input", ticket);
       const min = Number(ticket.dataset.min) || 0;
       const max = Number(ticket.dataset.max) || Infinity;
+      // Детский билет нельзя купить без взрослого: без него счётчик обнуляется и блокируется
+      const locked = ticket.dataset.requires ? !getQty(ticket.dataset.requires) : false;
+      if (locked) input.value = 0;
       const qty = Number(input.value) || 0;
       const sum = qty * Number(ticket.dataset.price);
       total += sum;
 
       $('[data-step="-1"]', ticket).disabled = qty <= min;
-      $('[data-step="1"]', ticket).disabled = qty >= max;
+      $('[data-step="1"]', ticket).disabled = locked || qty >= max;
       setText("sum", format(sum), ticket);
 
       const line = $(`[data-line="${ticket.dataset.ticket}"]`, form);

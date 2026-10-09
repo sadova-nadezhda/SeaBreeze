@@ -87,7 +87,7 @@
         </div>
 
         <!-- data-price — цена за билет, data-min / data-max — границы счётчика -->
-        <div class="book-form__ticket" data-ticket="adult" data-price="4900" data-min="0" data-max="20">
+        <div class="book-form__ticket" data-ticket="adult" data-price="4900" data-min="1" data-max="20">
           <div class="book-form__ticket-info">
             <h2 class="book-form__heading">Взрослый билет</h2>
             <p class="book-form__ticket-text">Для гостей от 14 лет</p>
@@ -108,7 +108,8 @@
           <p class="book-form__ticket-sum"><span data-book="sum">4 900</span> ₼</p>
         </div>
 
-        <div class="book-form__ticket" data-ticket="child" data-price="2450" data-min="0" data-max="20">
+        <!-- data-requires — билет доступен, только если в заказе есть указанный -->
+        <div class="book-form__ticket" data-ticket="child" data-requires="adult" data-price="2450" data-min="0" data-max="20">
           <div class="book-form__ticket-info">
             <h2 class="book-form__heading">Детский билет</h2>
             <p class="book-form__ticket-text">Для гостей от 3 до 13 лет</p>

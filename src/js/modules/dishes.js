@@ -13,5 +13,10 @@ export const initDishes = () => {
     spaceBetween: s(8),
     speed: 600,
     grabCursor: true,
+    loop: true,
+    autoplay: {
+      delay: 3000,
+      disableOnInteraction: false,
+    }
   });
 };

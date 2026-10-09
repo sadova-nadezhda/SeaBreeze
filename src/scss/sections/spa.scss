@@ -29,7 +29,8 @@
     }
 
     @include mobile {
-      min-height: s(740);
+      min-height: calc(90vh - #{s(48)});
+      min-height: calc(90svh - #{s(48)});
       padding-inline: s(8);
       background:
         radial-gradient(circle at 0 0, #0F4A63 0%, rgba(15, 74, 99, 0) 35%),

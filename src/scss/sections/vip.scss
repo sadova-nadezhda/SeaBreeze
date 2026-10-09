@@ -113,53 +113,49 @@
   }
 
   &__gallery {
-    display: grid;
-    grid-template-columns: s(288) 1fr s(288);
-    grid-template-areas: "left main right";
-    gap: s(8);
+    position: relative;
     height: s(416);
 
     @include tablet {
-      grid-template-columns: 1fr 1fr;
-      grid-template-rows: s(480) s(240);
-      grid-template-areas:
-        "main main"
-        "left right";
-      height: auto;
+      height: s(480);
     }
 
     @include mobile {
-      grid-template-rows: s(435) s(167);
+      height: s(435);
     }
   }
 
-  &__main {
-    position: relative;
-    grid-area: main;
-    min-height: 0;
+  &__slider {
+    height: 100%;
+  }
+
+  // По бокам от активного слайда видны соседние: по s(288) + отступ s(8)
+  &__slide {
+    width: calc(100% - #{s(592)});
+
+    @include tablet {
+      width: 100%;
+    }
   }
 
   &__img {
     width: 100%;
     height: 100%;
-    min-height: 0;
     object-fit: cover;
-
-    &--left {
-      grid-area: left;
-    }
-
-    &--right {
-      grid-area: right;
-    }
   }
 
   &__stats {
     position: absolute;
-    inset: auto s(2) s(2);
+    z-index: 2;
+    inset: auto s(298) s(2);
     display: grid;
     grid-template-columns: repeat(3, 1fr);
     gap: s(2);
+    pointer-events: none;
+
+    @include tablet {
+      inset: auto s(2) s(2);
+    }
 
     @include mobile {
       inset: auto s(8) s(8);

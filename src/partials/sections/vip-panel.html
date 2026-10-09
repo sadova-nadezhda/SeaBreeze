@@ -1,23 +1,31 @@
 <div class="vip__panel" id="vip-@@id" role="tabpanel" aria-labelledby="vip-tab-@@id" @@if (active !== true) { hidden }>
-  <div class="vip__gallery">
-    <div class="vip__main reveal-clip">
-      <img class="vip__img" src="img/@@main" alt="@@name — общий вид" loading="lazy">
-      <ul class="vip__stats">
-        <li class="vip__stat reveal-blur">
-          <p class="vip__stat-value">До 4 человек</p>
-          <p class="vip__stat-label">Вместимость бани</p>
-        </li>
-        <li class="vip__stat reveal-blur">
-          <p class="vip__stat-value">4 часа</p>
-          <p class="vip__stat-label">Длится программа</p>
-        </li>
-        <li class="vip__stat reveal-blur">
-          <p class="vip__stat-value">77 м²</p>
-          <p class="vip__stat-label">Площадь бани</p>
-        </li>
-      </ul>
+  <div class="vip__gallery reveal-clip">
+    <div class="vip__slider swiper">
+      <div class="swiper-wrapper">
+        <div class="vip__slide swiper-slide">
+          <img class="vip__img" src="img/@@main" alt="@@name — общий вид" loading="lazy">
+        </div>
+        <div class="vip__slide swiper-slide">
+          <img class="vip__img" src="img/@@right" alt="@@name — зона отдыха" loading="lazy">
+        </div>
+        <div class="vip__slide swiper-slide">
+          <img class="vip__img" src="img/@@left" alt="@@name — терраса" loading="lazy">
+        </div>
+      </div>
     </div>
-    <img class="vip__img vip__img--left reveal-clip" src="img/@@left" alt="@@name — терраса" loading="lazy">
-    <img class="vip__img vip__img--right reveal-clip" src="img/@@right" alt="@@name — зона отдыха" loading="lazy">
+    <ul class="vip__stats">
+      <li class="vip__stat reveal-blur">
+        <p class="vip__stat-value">До 4 человек</p>
+        <p class="vip__stat-label">Вместимость бани</p>
+      </li>
+      <li class="vip__stat reveal-blur">
+        <p class="vip__stat-value">4 часа</p>
+        <p class="vip__stat-label">Длится программа</p>
+      </li>
+      <li class="vip__stat reveal-blur">
+        <p class="vip__stat-value">77 м²</p>
+        <p class="vip__stat-label">Площадь бани</p>
+      </li>
+    </ul>
   </div>
 </div>

@@ -1,7 +1,6 @@
 import { $, $$ } from "./helpers.js";
 import { s } from "./multiplier.js";
 import { refreshLayout } from "./layout.js";
-import { reducedMotion } from "./reveal.js";
 
 // ======================
 // News (слайдеры карточек: афиши и акции)
@@ -15,6 +14,11 @@ const initSliders = () => {
       spaceBetween: s(8),
       speed: 600,
       grabCursor: true,
+      loop: true,
+      autoplay: {
+        delay: 3000,
+        disableOnInteraction: false,
+      }
     });
   });
 };
@@ -37,15 +41,8 @@ const initMore = () => {
     }
 
     btn.addEventListener("click", () => {
-      const batch = hiddenCards().slice(0, step);
-      batch.forEach((card) => { card.hidden = false; });
+      hiddenCards().slice(0, step).forEach((card) => { card.hidden = false; });
       if (!hiddenCards().length) btn.hidden = true;
-
-      if (typeof gsap !== "undefined" && !reducedMotion()) {
-        gsap.fromTo(batch,
-          { clipPath: "inset(50% 0% 50% 0%)" },
-          { clipPath: "inset(0% 0% 0% 0%)", duration: 1.1, ease: "power3.inOut", clearProps: "clipPath" });
-      }
 
       refreshLayout();
     });
