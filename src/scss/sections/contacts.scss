@@ -29,8 +29,64 @@
   }
 
   &__media {
+    position: relative;
     display: block;
     overflow: hidden;
+
+    @include desktop {
+      &::before {
+        content: "";
+        position: absolute;
+        inset: 0;
+        z-index: 1;
+        background: rgba(0, 0, 0, 0.4);
+        opacity: 0;
+        transition: opacity 0.4s;
+      }
+
+      &:hover::before,
+      &:focus-visible::before {
+        opacity: 1;
+      }
+    }
+  }
+
+  &__btn {
+    display: none;
+
+    @include desktop {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      z-index: 1;
+      display: flex;
+      align-items: center;
+      gap: s(8);
+      height: s(48);
+      padding: s(8) s(12);
+      background: var(--color-white);
+      font: 500 s(14)/1.2 var(--font-secondary);
+      text-transform: uppercase;
+      white-space: nowrap;
+      opacity: 0;
+      transform: translate(-50%, calc(-50% + #{s(12)}));
+      transition: opacity 0.4s, transform 0.4s;
+    }
+  }
+
+  &__btn-icon {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: s(32);
+    height: s(32);
+    background: var(--color-primary);
+  }
+
+  &__media:hover &__btn,
+  &__media:focus-visible &__btn {
+    opacity: 1;
+    transform: translate(-50%, -50%);
   }
 
   &__img {
@@ -162,7 +218,6 @@
       position: absolute;
       top: 0;
       right: 0;
-      // запас 2px: при дробных размерах край картинки просвечивал у правой границы
       transform: translateX(calc(100% + 2px));
       transition: transform 0.4s;
     }
