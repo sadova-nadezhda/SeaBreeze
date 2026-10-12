@@ -211,6 +211,12 @@
     &:hover {
       color: var(--color-cream);
     }
+
+    @include mobile {
+      &:hover {
+        color: var(--color-primary);
+      }
+    }
   }
 
   &__bar {
@@ -264,6 +270,10 @@
 
     @include mobile {
       justify-self: start;
+
+      &:hover {
+        color: var(--color-primary);
+      }
     }
   }
 }
