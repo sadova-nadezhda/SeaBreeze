@@ -1,12 +1,6 @@
 @use "../functions" as *;
 
 .book-type {
-  padding-block: s(64);
-
-  @include mobile {
-    padding-block: s(42);
-  }
-
   &__title {
     font-size: s(32);
     line-height: 1.2;
@@ -88,6 +82,9 @@
     margin-top: s(8);
     padding: s(12);
     background: rgba(193, 147, 99, 0.1);
+    @include mobile {
+      align-items: flex-start;
+    }
   }
 
   &__notice-icon {

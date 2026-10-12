@@ -1,13 +1,8 @@
 @use "../functions" as *;
 
 .bath-space {
-  padding-block: s(64);
   overflow: hidden;
   overflow: clip;
-
-  @include mobile {
-    padding-block: s(42);
-  }
 
   &__title {
     text-align: center;

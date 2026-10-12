@@ -1,12 +1,6 @@
 @use "../functions" as *;
 
 .contacts {
-  padding-block: s(64);
-
-  @include mobile {
-    padding-block: s(42);
-  }
-
   &__grid {
     display: grid;
     grid-template-columns: repeat(6, 1fr);
@@ -60,27 +54,12 @@
       left: 50%;
       z-index: 1;
       display: flex;
-      align-items: center;
-      gap: s(8);
-      height: s(48);
-      padding: s(8) s(12);
       background: var(--color-white);
-      font: 500 s(14)/1.2 var(--font-secondary);
-      text-transform: uppercase;
       white-space: nowrap;
       opacity: 0;
       transform: translate(-50%, calc(-50% + #{s(12)}));
       transition: opacity 0.4s, transform 0.4s;
     }
-  }
-
-  &__btn-icon {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    width: s(32);
-    height: s(32);
-    background: var(--color-primary);
   }
 
   &__media:hover &__btn,
@@ -115,8 +94,8 @@
     background: var(--color-white);
 
     @include mobile {
-      gap: s(16);
-      padding: s(16);
+      gap: s(12);
+      padding: s(12);
     }
 
     &--small {
@@ -124,7 +103,7 @@
 
       @include mobile {
         grid-column: auto;
-        gap: s(4);
+        gap: s(12);
       }
     }
 
@@ -138,6 +117,9 @@
     color: rgba(0, 0, 0, 0.4);
     font: 500 s(14)/1.3 var(--font-secondary);
     text-transform: uppercase;
+    @include mobile {
+      font-size: s(12);
+    }
   }
 
   &__info--accent &__label {
@@ -185,7 +167,6 @@
     }
 
     @include tablet {
-      gap: s(4);
       background: none;
       font-size: s(16);
     }
@@ -222,12 +203,8 @@
       transition: transform 0.4s;
     }
 
-    @include tablet {
-      width: s(96);
-    }
-
     @include mobile {
-      width: s(191);
+      width: s(180);
     }
   }
 

@@ -117,12 +117,13 @@
     align-items: flex-start;
     gap: s(10);
     font-size: s(12);
-    line-height: s(16);
+    line-height: 1.4;
     cursor: pointer;
   }
 
   &__checkbox {
     flex-shrink: 0;
+    min-width: s(16);
     width: s(16);
     height: s(16);
     margin: 0;
@@ -140,6 +141,10 @@
       outline: 1px solid var(--color-primary);
       outline-offset: s(2);
     }
+
+    @include mobile {
+      margin-top: s(4);
+    }
   }
 
   &__text {
@@ -147,20 +152,6 @@
   }
 
   &__btn {
-    display: flex;
-    align-items: center;
-    height: s(48);
-    padding: s(8) s(12);
-    background: var(--color-gray);
-    font: 500 s(14)/1.2 var(--font-secondary);
-    text-transform: uppercase;
-    transition: color 0.3s, background-color 0.3s;
-
-    &:hover {
-      color: var(--color-white);
-      background: var(--color-primary);
-    }
-
     @include mobile {
       justify-content: center;
       width: 100%;

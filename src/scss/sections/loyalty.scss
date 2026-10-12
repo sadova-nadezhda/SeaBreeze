@@ -21,7 +21,6 @@
     background: var(--color-dark);
     text-align: center;
 
-    // затемнение поверх фоновой картинки
     &::after {
       content: "";
       position: absolute;
@@ -33,11 +32,12 @@
 
     @include tablet {
       min-height: s(640);
+      padding-inline: s(16);
     }
 
     @include mobile {
       min-height: s(600);
-      padding-inline: s(16);
+      padding-inline: s(8);
     }
   }
 
@@ -62,8 +62,14 @@
     font-weight: 300;
     letter-spacing: -0.04em;
 
-    @include mobile {
+    @include tablet {
+      max-width: s(420);
       margin-block: s(32);
+    }
+
+    @include mobile {
+      max-width: s(320);
+      margin-block: s(24);
     }
   }
 
@@ -74,28 +80,12 @@
     gap: s(8);
   }
 
-  &__btn {
-    display: flex;
-    align-items: center;
-    height: s(48);
-    padding: s(8) s(12);
-    color: var(--color-text);
-    background: var(--color-gray);
-    font: 500 s(14)/1.2 var(--font-secondary);
-    text-transform: uppercase;
-    transition: color 0.3s, background-color 0.3s;
+  &__btn--ghost {
+    color: var(--color-white);
+    background: rgba(255, 255, 255, 0.15);
 
     &:hover {
-      background: var(--color-white);
-    }
-
-    &--ghost {
-      color: var(--color-white);
-      background: rgba(255, 255, 255, 0.15);
-
-      &:hover {
-        color: var(--color-text);
-      }
+      color: var(--color-text);
     }
   }
 }

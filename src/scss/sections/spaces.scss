@@ -1,12 +1,6 @@
 @use "../functions" as *;
 
 .spaces {
-  padding-block: s(64);
-
-  @include mobile {
-    padding-block: s(42);
-  }
-
   &__list {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
@@ -35,6 +29,7 @@
 
     @include mobile {
       height: s(320);
+      padding: s(16);
     }
 
     &::before {
@@ -61,8 +56,7 @@
     transition: transform 0.8s ease;
   }
 
-  &__label,
-  &__btn {
+  &__label {
     font: 500 s(14)/1.4 var(--font-secondary);
     text-transform: uppercase;
   }
@@ -73,29 +67,18 @@
     text-transform: uppercase;
 
     @include mobile {
-      font-size: s(24);
+      font-size: s(22);
     }
   }
 
   &__btn {
-    display: flex;
-    align-items: center;
-    height: s(40);
     margin-top: auto;
-    padding: s(12);
-    color: var(--color-text);
-    background-color: var(--color-bg);
-    transition: background-color 0.3s ease-out, color 0.3s ease-out;
+    background: var(--color-bg);
 
     &::after {
       content: "";
       position: absolute;
       inset: 0;
-    }
-
-    &:hover {
-      color: var(--color-white);
-      background-color: var(--color-primary);
     }
   }
 }

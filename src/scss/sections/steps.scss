@@ -1,12 +1,6 @@
 @use "../functions" as *;
 
 .steps {
-  padding-block: s(64);
-
-  @include mobile {
-    padding-block: s(42);
-  }
-
   &__list {
     display: grid;
     grid-template-columns: repeat(4, 1fr);
@@ -59,30 +53,16 @@
     text-transform: uppercase;
   }
 
-  &__text,
-  &__btn {
+  &__text {
+    margin-top: s(16);
+    color: rgba(0, 0, 0, 0.4);
     font: 500 s(14)/1.3 var(--font-secondary);
     text-transform: uppercase;
   }
 
-  &__text {
-    margin-top: s(16);
-    color: rgba(0, 0, 0, 0.4);
-  }
-
   &__btn {
-    display: flex;
-    align-items: center;
-    height: s(40);
     margin-top: auto;
-    padding: s(12);
     background: var(--color-bg);
-    transition: background-color 0.3s ease-out, color 0.3s ease-out;
-
-    &:hover {
-      color: var(--color-white);
-      background: var(--color-primary);
-    }
   }
 
   &__text + &__btn {

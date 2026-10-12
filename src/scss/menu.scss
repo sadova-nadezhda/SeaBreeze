@@ -161,31 +161,7 @@
   }
 
   &__book {
-    display: flex;
-    align-items: center;
-    gap: s(8);
     width: 100%;
-    height: s(48);
-    padding: s(8) s(12);
     color: var(--color-dark);
-    background: var(--color-gray);
-    font: 500 s(14)/1 var(--font-secondary);
-    text-transform: inherit;
-    letter-spacing: inherit;
-    transition: background-color 0.3s;
-
-    &:hover {
-      background: var(--color-white);
-    }
-  }
-
-  &__book-icon {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    width: s(32);
-    height: s(32);
-    color: var(--color-cream);
-    background: var(--color-primary);
   }
 }

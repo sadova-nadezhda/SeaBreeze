@@ -2,14 +2,9 @@
 
 .reviews {
   position: relative;
-  padding-block: s(64);
   overflow: hidden;
   overflow: clip;
   isolation: isolate;
-
-  @include mobile {
-    padding-block: s(42);
-  }
 
   &__back {
     position: absolute;
@@ -78,7 +73,7 @@
     }
 
     @include mobile {
-      width: 100%;
+      width: s(320);
       min-height: 0;
       padding: s(16);
     }
@@ -122,6 +117,9 @@
     line-height: 1.5;
     -webkit-box-orient: vertical;
     -webkit-line-clamp: 9;
+    @include mobile {
+      font-size: s(14);
+    }
   }
 
   &__source {
@@ -151,19 +149,7 @@
   }
 
   &__btn {
-    display: flex;
-    align-items: center;
-    height: s(48);
     margin-top: s(64);
-    padding: s(8) s(12);
-    background: var(--color-gray);
-    font: 500 s(14)/1.4 var(--font-secondary);
-    text-transform: uppercase;
-    transition: background-color 0.3s;
-
-    &:hover {
-      background: var(--color-white);
-    }
 
     @include mobile {
       margin-top: s(100);

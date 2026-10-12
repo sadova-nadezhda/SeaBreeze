@@ -1,13 +1,8 @@
 @use "../functions" as *;
 
 .dishes {
-  padding-block: s(64);
   overflow: hidden;
   overflow: clip;
-
-  @include mobile {
-    padding-block: s(42);
-  }
 
   &__container {
     display: flex;
@@ -20,20 +15,7 @@
   }
 
   &__btn {
-    display: flex;
-    align-items: center;
-    height: s(48);
     margin-top: s(24);
-    padding: s(8) s(12);
-    background: var(--color-gray);
-    font: 500 s(14)/1.4 var(--font-secondary);
-    text-transform: uppercase;
-    transition: background-color 0.3s;
-
-    &:hover {
-      background: var(--color-white);
-    }
-
   }
 
   &__slider {

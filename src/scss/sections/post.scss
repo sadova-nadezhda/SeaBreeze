@@ -1,12 +1,6 @@
 @use "../functions" as *;
 
 .post {
-  padding-block: s(64);
-
-  @include mobile {
-    padding-block: s(42);
-  }
-
   &__container {
     display: flex;
     flex-direction: column;

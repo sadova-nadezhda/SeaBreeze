@@ -1,12 +1,6 @@
 @use "../functions" as *;
 
 .book-form {
-  padding-block: s(64);
-
-  @include mobile {
-    padding-block: s(42);
-  }
-
   &__title {
     font-size: s(32);
     line-height: 1.2;
@@ -61,6 +55,9 @@
     color: rgba(0, 0, 0, 0.4);
     font-size: s(14);
     line-height: 1.4;
+    @include mobile {
+      margin-top: s(16);
+    }
   }
 
   // Кабинеты
@@ -164,6 +161,9 @@
     &--days,
     .book-form__heading + & {
       margin-top: s(24);
+      @include mobile {
+        margin-top: s(16);
+      }
     }
   }
 
@@ -570,15 +570,5 @@
       opacity: 0.5;
       cursor: default;
     }
-  }
-
-  &__pay-icon {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    width: s(32);
-    height: s(32);
-    color: var(--color-white);
-    background: var(--color-primary);
   }
 }

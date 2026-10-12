@@ -97,7 +97,7 @@ h1 {
     font-size: s(52);
   }
   @include mobile {
-    font-size: s(42);
+    font-size: s(36);
   }
 }
 
@@ -185,6 +185,14 @@ input:focus-visible {
 
   @include mobile {
     padding-inline: s(16);
+  }
+}
+
+.section {
+  padding-block: s(64);
+
+  @include mobile {
+    padding-block: s(42);
   }
 }
 

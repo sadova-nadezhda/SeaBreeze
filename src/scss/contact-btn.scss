@@ -1,27 +1,48 @@
 @use "functions" as *;
 
-// Плавающая кнопка «Связаться с нами» у правого края окна
 .contact-btn {
   position: fixed;
-  top: 50%;
-  right: var(--scrollbar-width); // не прыгает при блокировке скролла
+  top: 30%;
+  right: var(--scrollbar-width);
   z-index: 90;
-  padding: s(32) s(8);
-  color: var(--color-text);
-  background: var(--color-white);
-  font: 500 s(14)/1.4 var(--font-secondary);
-  letter-spacing: 0.02em;
-  text-transform: uppercase;
-  writing-mode: vertical-rl;
-  transform: translateY(-50%) rotate(180deg);
-  transition: background-color 0.3s;
+  display: flex;
+  flex-direction: column;
+  color: var(--color-white);
+  transform: translateY(-50%);
 
-  // выезжает справа в конце интро hero (hero.js)
   .js:has(.hero:not(.is-ready)) & {
     translate: 100% 0;
   }
 
-  &:hover {
-    background: var(--color-cream);
+  &__link {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: s(42);
+    height: s(42);
+    transition: color 0.3s;
+    background-color: rgba(0, 0, 0, 0.4);
+    backdrop-filter: blur(40px);
+    transition: background-color 0.3s ease-out;
+
+    // &--tel {
+    //   @include desktop {
+    //     display: none;
+    //   } 
+    // }
+
+    &:hover {
+      background-color: var(--color-primary);
+    }
+  }
+
+  &__icon {
+    width: s(21);
+    height: s(21);
+
+    &--phone {
+      width: s(19);
+      height: s(19);
+    }
   }
 }

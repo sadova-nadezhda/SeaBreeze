@@ -6,11 +6,6 @@
   align-items: center;
   min-height: 100vh;
   min-height: 100svh;
-  padding-block: s(64);
-
-  @include mobile {
-    padding-block: s(42);
-  }
 
   &__bg {
     position: absolute;
@@ -66,41 +61,18 @@
     margin-top: s(16);
   }
 
-  &__tag,
-  &__btn {
+  &__tag {
     display: flex;
     align-items: center;
+    min-height: s(32);
+    padding: s(8) s(12);
     background: var(--color-gray);
     font: 500 s(14)/1.2 var(--font-secondary);
     text-transform: uppercase;
   }
 
-  &__tag {
-    min-height: s(32);
-    padding: s(8) s(12);
-  }
-
   &__btn {
-    gap: s(8);
-    height: s(48);
     margin-top: s(24);
-    padding: s(8) s(12);
-    transition: background-color 0.3s, color 0.3s;
-
-    &:hover {
-      color: var(--color-white);
-      background: var(--color-primary);
-    }
-  }
-
-  &__btn-icon {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    width: s(32);
-    height: s(32);
-    color: var(--color-white);
-    background: var(--color-primary);
   }
 
   &__media {

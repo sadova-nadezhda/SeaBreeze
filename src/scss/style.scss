@@ -2,6 +2,7 @@
 @use "fonts";
 @use "lenis";
 @use "global";
+@use "btn";
 @use "header";
 @use "menu";
 @use "contact-btn";
@@ -9,10 +10,6 @@
 @use "footer";
 @use "modals";
 
-// Глобальные секции
-// @use "sections/feedback";
-
-// Остальные секции подключать сюда:
 @use "sections/hero";
 @use "sections/about";
 @use "sections/vip";

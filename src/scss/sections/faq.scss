@@ -1,12 +1,6 @@
 @use "../functions" as *;
 
 .faq {
-  padding-block: s(64);
-
-  @include mobile {
-    padding-block: s(42);
-  }
-
   &__list {
     display: grid;
     gap: s(8);

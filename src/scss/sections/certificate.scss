@@ -1,12 +1,6 @@
 @use "../functions" as *;
 
 .certificate {
-  padding-block: s(64);
-
-  @include mobile {
-    padding-block: s(42);
-  }
-
   &__container {
     display: grid;
     grid-template-columns: repeat(2, 1fr);
@@ -56,21 +50,7 @@
   }
 
   &__btn {
-    display: flex;
-    align-items: center;
-    gap: s(8);
-    height: s(48);
     margin-top: s(42);
-    padding: s(8) s(12);
-    background: var(--color-gray);
-    font: 500 s(14)/1.2 var(--font-secondary);
-    text-transform: uppercase;
-    transition: background-color 0.3s, color 0.3s;
-
-    &:hover {
-      color: var(--color-white);
-      background: var(--color-primary);
-    }
 
     @include tablet {
       margin-top: s(32);
@@ -79,16 +59,6 @@
     @include mobile {
       margin-top: s(24);
     }
-  }
-
-  &__btn-icon {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    width: s(32);
-    height: s(32);
-    color: var(--color-white);
-    background: var(--color-primary);
   }
 
   &__media {

@@ -1,13 +1,8 @@
 @use "../functions" as *;
 
 .vip {
-  padding-block: s(64);
   overflow: hidden;
   overflow: clip;
-
-  @include mobile {
-    padding-block: s(42);
-  }
 
   &__head {
     display: flex;
@@ -25,35 +20,29 @@
     margin-block: s(24);
   }
 
-  &__btn,
+  &__btn {
+    flex-shrink: 0;
+  }
+
   &__tab {
     display: flex;
     align-items: center;
     flex-shrink: 0;
+    gap: s(8);
+    padding: s(8) s(12);
     background: var(--color-gray);
-    font: 500 s(14)/1.4 var(--font-secondary);
+    font: 500 s(12)/1.4 var(--font-secondary);
     text-transform: uppercase;
     transition: color 0.3s, background-color 0.3s;
-  }
-
-  &__btn {
-    gap: s(8);
-    height: s(48);
-    padding: s(8) s(12);
 
     &:hover {
       background: var(--color-white);
     }
-  }
 
-  &__btn-icon {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    width: s(32);
-    height: s(32);
-    color: var(--color-white);
-    background: var(--color-primary);
+    &.is-active {
+      color: var(--color-cream);
+      background: var(--color-primary);
+    }
   }
 
   &__tabs {
@@ -79,21 +68,6 @@
     @include mobile {
       margin-inline: s(-16);
       padding-inline: s(16);
-    }
-  }
-
-  &__tab {
-    gap: s(8);
-    padding: s(8) s(12);
-    font-size: s(12);
-
-    &:hover {
-      background: var(--color-white);
-    }
-
-    &.is-active {
-      color: var(--color-cream);
-      background: var(--color-primary);
     }
   }
 

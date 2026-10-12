@@ -23,6 +23,8 @@ export const initSpa = () => {
 
   const ctx = canvas.getContext("2d");
   const reduced = window.matchMedia("(prefers-reduced-motion: reduce)");
+  // на мобилке волны скрыты (spa.scss) и не рисуются
+  const mobile = window.matchMedia("(max-width: 767px)");
   let width = 1, height = 1, cx = 1, cy = 1, start = 1, end = 2;
   let phase = 0, previous = null, raf = 0, visible = false;
 
@@ -82,7 +84,7 @@ export const initSpa = () => {
   };
 
   // анимация идёт только когда блок на экране
-  const paused = () => !visible || document.hidden || reduced.matches;
+  const paused = () => !visible || document.hidden || reduced.matches || mobile.matches;
 
   const frame = (now) => {
     raf = 0;
@@ -101,6 +103,7 @@ export const initSpa = () => {
   };
 
   new ResizeObserver(() => {
+    if (mobile.matches) return;
     geometry();
     render();
   }).observe(box);
@@ -112,4 +115,9 @@ export const initSpa = () => {
 
   document.addEventListener("visibilitychange", sync);
   reduced.addEventListener("change", sync);
+  mobile.addEventListener("change", () => {
+    geometry();
+    render();
+    sync();
+  });
 };

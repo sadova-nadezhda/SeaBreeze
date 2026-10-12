@@ -133,6 +133,10 @@
     width: 100%;
     height: 100%;
     pointer-events: none;
+
+    @include mobile {
+      display: none;
+    }
   }
 
   &__content {
@@ -211,30 +215,4 @@
     }
   }
 
-  &__btn {
-    display: flex;
-    align-items: center;
-    gap: s(8);
-    height: s(48);
-    padding: s(8) s(12);
-    color: var(--color-text);
-    background: var(--color-gray);
-    font: 500 s(14)/1.2 var(--font-secondary);
-    text-transform: uppercase;
-    transition: background-color 0.3s;
-
-    &:hover {
-      background: var(--color-white);
-    }
-  }
-
-  &__btn-icon {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    width: s(32);
-    height: s(32);
-    color: var(--color-white);
-    background: var(--color-primary);
-  }
 }

@@ -1,12 +1,6 @@
 @use "../functions" as *;
 
 .bath-vip {
-  padding-block: s(64);
-
-  @include mobile {
-    padding-block: s(42);
-  }
-
   &__title {
     max-width: s(700);
     margin-inline: auto;
