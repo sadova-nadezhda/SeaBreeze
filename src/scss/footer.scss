@@ -205,6 +205,14 @@
     }
   }
 
+  &__bar-link {
+    text-decoration: underline;
+    text-underline-offset: s(2);
+    &:hover {
+      color: var(--color-cream);
+    }
+  }
+
   &__bar {
     display: grid;
     grid-template-columns: 1fr auto 1fr;
@@ -249,6 +257,10 @@
 
   &__made {
     justify-self: end;
+
+    &:hover {
+      color: var(--color-cream);
+    }
 
     @include mobile {
       justify-self: start;
