@@ -1,12 +1,12 @@
 import { $, $$ } from "./helpers.js";
-import { blurIn, reducedMotion } from "./reveal.js";
+import { blurIn, skipAnimations } from "./reveal.js";
 
 // ======================
 // Hero (интро + слайдер фона + плашка перехода)
 // ======================
 
 const playIntro = (hero) => {
-  if (typeof gsap !== "undefined" && !reducedMotion()) {
+  if (typeof gsap !== "undefined" && !skipAnimations()) {
     const header = $(".header__container");
     const contactBtn = $(".contact-btn");
     const items = [$(".hero__title", hero), ...$$(".hero__info > *", hero), $(".hero__promo", hero)].filter(Boolean);

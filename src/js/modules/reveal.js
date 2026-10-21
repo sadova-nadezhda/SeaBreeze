@@ -21,7 +21,19 @@ const TYPES = {
   },
 };
 
-export const reducedMotion = () => window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+// Анимации играют один раз на страницу за сессию: при обновлении элементы сразу на месте
+const SEEN_KEY = "seen-pages";
+const seenBefore = (() => {
+  try {
+    const seen = JSON.parse(sessionStorage.getItem(SEEN_KEY) || "[]");
+    const page = location.pathname;
+    if (seen.includes(page)) return true;
+    sessionStorage.setItem(SEEN_KEY, JSON.stringify([...seen, page]));
+  } catch {}
+  return false;
+})();
+
+export const skipAnimations = () => seenBefore || window.matchMedia("(prefers-reduced-motion: reduce)").matches;
 
 export const blurIn = (targets, vars = {}) => gsap.fromTo(targets, TYPES.blur.from, { ...TYPES.blur.to, ...vars });
 
@@ -41,7 +53,7 @@ const reveal = (type) => {
 };
 
 export const initReveal = () => {
-  if (typeof gsap === "undefined" || typeof ScrollTrigger === "undefined" || reducedMotion()) return;
+  if (typeof gsap === "undefined" || typeof ScrollTrigger === "undefined" || skipAnimations()) return;
   gsap.registerPlugin(ScrollTrigger);
 
   Object.keys(TYPES).forEach(reveal);
