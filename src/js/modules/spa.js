@@ -9,7 +9,12 @@ const INTENSITY = 0.65;
 const SOFTNESS = 0.75;
 const SCALE = 60;
 const SWIRL = 0.4;
+const DENSITY = 100; // густота: число клубов в потоке и их плотность, 0..100
+const CONTRAST = 0; // тёмная подложка под клубами для светлого фона, 0..100
+const PUFFS = 4 + Math.round(DENSITY / 17);
+const BODY = 0.65 + (DENSITY / 100) * 0.95;
 const COLOR = "239,245,237";
+const SHADOW = "13,37,42";
 const SPRITE = 192;
 
 const smooth = (a, b, x) => {
@@ -17,17 +22,14 @@ const smooth = (a, b, x) => {
   return v * v * (3 - 2 * v);
 };
 
-// один мягкий клуб пара, дальше он только масштабируется
-const makeSprite = () => {
+// мягкое пятно с радиальным градиентом, дальше оно только масштабируется
+const makeSprite = (stops) => {
   const sprite = document.createElement("canvas");
   sprite.width = sprite.height = SPRITE;
   const c = sprite.getContext("2d");
   const half = SPRITE / 2;
   const g = c.createRadialGradient(half, half, 0, half, half, half);
-  g.addColorStop(0, `rgba(${COLOR},.7)`);
-  g.addColorStop(0.12 + (1 - SOFTNESS) * 0.32, `rgba(${COLOR},.43)`);
-  g.addColorStop(0.65, `rgba(${COLOR},.12)`);
-  g.addColorStop(1, `rgba(${COLOR},0)`);
+  stops.forEach(([offset, color]) => g.addColorStop(offset, color));
   c.fillStyle = g;
   c.fillRect(0, 0, SPRITE, SPRITE);
   return sprite;
@@ -39,7 +41,19 @@ export const initSpa = () => {
   if (!box || !canvas) return;
 
   const ctx = canvas.getContext("2d");
-  const sprite = makeSprite();
+  // клуб пара
+  const sprite = makeSprite([
+    [0, `rgba(${COLOR},.7)`],
+    [0.12 + (1 - SOFTNESS) * 0.32, `rgba(${COLOR},.43)`],
+    [0.65, `rgba(${COLOR},.12)`],
+    [1, `rgba(${COLOR},0)`],
+  ]);
+  // тёмная подложка, нужна только при CONTRAST > 0
+  const shadow = CONTRAST > 0 && makeSprite([
+    [0, `rgba(${SHADOW},.7)`],
+    [0.45, `rgba(${SHADOW},.26)`],
+    [1, `rgba(${SHADOW},0)`],
+  ]);
   const reduced = window.matchMedia("(prefers-reduced-motion: reduce)");
   // на мобилке пар скрыт (spa.scss) и не рисуется
   const mobile = window.matchMedia("(max-width: 767px)");
@@ -71,12 +85,17 @@ export const initSpa = () => {
       const rx = size * (0.7 + p * 0.65);
       const ry = size * (1.2 + p * 0.5);
 
-      ctx.globalAlpha = envelope * INTENSITY * 0.18;
-      for (let j = 0; j < 5; j++) {
+      const opacity = envelope * INTENSITY * 0.18 * BODY;
+      for (let j = 0; j < PUFFS; j++) {
         const a = seed + j * 2.4;
         const spread = size * (0.12 + 0.24 * SWIRL);
         const ox = Math.sin(a + theta) * spread;
         const oy = Math.cos(a - theta) * spread;
+        if (shadow) {
+          ctx.globalAlpha = opacity * (CONTRAST / 100) * 0.75;
+          ctx.drawImage(shadow, x + ox - rx + size * 0.035, y + oy - ry + size * 0.045, rx * 2, ry * 2);
+        }
+        ctx.globalAlpha = opacity;
         ctx.drawImage(sprite, x + ox - rx, y + oy - ry, rx * 2, ry * 2);
       }
     }
