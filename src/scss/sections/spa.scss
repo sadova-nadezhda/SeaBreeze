@@ -19,9 +19,7 @@
     overflow: hidden;
     isolation: isolate;
     color: var(--color-white);
-    background:
-      radial-gradient(circle at 88% 20%, #143F58 0%, rgba(20, 63, 88, 0) 48%),
-      linear-gradient(100deg, #7FDADA 0%, #4E97A3 50%, #2F6B7D 100%);
+    background: linear-gradient(112deg, #79634E 0%, #79634E 46%, #79634E 100%);
     text-align: center;
 
     @include tablet {
@@ -32,10 +30,6 @@
       min-height: calc(60vh - #{s(48)});
       min-height: calc(60svh - #{s(48)});
       padding-inline: s(8);
-      background:
-        radial-gradient(circle at 0 0, #0F4A63 0%, rgba(15, 74, 99, 0) 35%),
-        radial-gradient(circle at 100% 55%, #2F6B7D 0%, rgba(47, 107, 125, 0) 60%),
-        linear-gradient(160deg, #86DADA 0%, #6DBFC5 45%, #5AA9B1 100%);
     }
   }
 
