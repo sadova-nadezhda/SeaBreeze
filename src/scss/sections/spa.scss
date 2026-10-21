@@ -19,7 +19,10 @@
     overflow: hidden;
     isolation: isolate;
     color: var(--color-white);
-    background: linear-gradient(112deg, #79634E 0%, #79634E 46%, #79634E 100%);
+    // нижний правый угол чуть темнее
+    background:
+      radial-gradient(ellipse 60% 70% at 100% 100%, rgba(58, 44, 33, 0.55) 0%, rgba(58, 44, 33, 0) 100%),
+      linear-gradient(112deg, #79634E 0%, #79634E 46%, #79634E 100%);
     text-align: center;
 
     @include tablet {
@@ -147,6 +150,8 @@
   &__title {
     max-width: s(740);
     margin-block: s(42);
+    // отделяет белый текст от светлого пара
+    text-shadow: 0 0 s(24) rgba(60, 45, 32, 0.45);
 
     @include mobile {
       margin-block: s(32);

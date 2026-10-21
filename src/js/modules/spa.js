@@ -5,15 +5,17 @@ import { $ } from "./helpers.js";
 // ======================
 const PERIOD = 18;
 const COUNT = 6;
-const INTENSITY = 0.65;
+const INTENSITY = 0.55;
 const SOFTNESS = 0.75;
 const SCALE = 60;
 const SWIRL = 0.4;
-const DENSITY = 100; // густота: число клубов в потоке и их плотность, 0..100
+const DENSITY = 85; // густота: число клубов в потоке и их плотность, 0..100
 const CONTRAST = 0; // тёмная подложка под клубами для светлого фона, 0..100
 const PUFFS = 4 + Math.round(DENSITY / 17);
 const BODY = 0.65 + (DENSITY / 100) * 0.95;
-const COLOR = "239,245,237";
+const CLEAR = 0.6; // насколько пар редеет за текстом в центре, 0..1
+// тёплая сероватая дымка вместо чисто белого
+const COLOR = "232,224,212";
 const SHADOW = "13,37,42";
 const SPRITE = 192;
 
@@ -41,12 +43,18 @@ export const initSpa = () => {
   if (!box || !canvas) return;
 
   const ctx = canvas.getContext("2d");
-  // клуб пара
+  // клуб пара: плоский профиль без яркого ядра, чтобы читался как дымка, а не вата
   const sprite = makeSprite([
-    [0, `rgba(${COLOR},.7)`],
-    [0.12 + (1 - SOFTNESS) * 0.32, `rgba(${COLOR},.43)`],
-    [0.65, `rgba(${COLOR},.12)`],
+    [0, `rgba(${COLOR},.4)`],
+    [0.12 + (1 - SOFTNESS) * 0.32, `rgba(${COLOR},.3)`],
+    [0.65, `rgba(${COLOR},.1)`],
     [1, `rgba(${COLOR},0)`],
+  ]);
+  // маска, которой пар стирается за текстом
+  const hole = makeSprite([
+    [0, `rgba(0,0,0,${CLEAR})`],
+    [0.5, `rgba(0,0,0,${CLEAR * 0.7})`],
+    [1, "rgba(0,0,0,0)"],
   ]);
   // тёмная подложка, нужна только при CONTRAST > 0
   const shadow = CONTRAST > 0 && makeSprite([
@@ -100,6 +108,9 @@ export const initSpa = () => {
       }
     }
     ctx.globalAlpha = 1;
+    ctx.globalCompositeOperation = "destination-out";
+    ctx.drawImage(hole, width * 0.1, height * 0.1, width * 0.8, height * 0.8);
+    ctx.globalCompositeOperation = "source-over";
   };
 
   // анимация идёт только когда блок на экране
